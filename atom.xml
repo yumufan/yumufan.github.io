@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>断剑重铸之日，骑士归来之时。</title>
   
-  
+  <subtitle>Linux ， 编程 ，golang  ，系统管理  ，个人文章 ，生活</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yumufan.top/"/>
@@ -10,7 +10,7 @@
   <id>http://www.yumufan.top/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>喻木凡</name>
     
   </author>
   
