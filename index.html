@@ -366,7 +366,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yumufan.top/2017/09/15/文章标题/">
+    <link itemprop="mainEntityOfPage" href="http://www.yumufan.top/2017/09/15/正则表达式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="喻木凡">
@@ -385,7 +385,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/09/15/文章标题/" itemprop="url">正则表达式</a></h1>
+                <a class="post-title-link" href="/2017/09/15/正则表达式/" itemprop="url">正则表达式</a></h1>
         
 
         <div class="post-meta">
@@ -1543,303 +1543,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yumufan.top/2017/09/13/正则表达式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="喻木凡">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="断剑重铸之日，骑士归来之时。">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/13/正则表达式/" itemprop="url">正则表达式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-13T19:17:27+08:00">
-                2017-09-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux知识/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux知识</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  4,789
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  19
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>####<strong><1> 正则表达式基础</1></strong></p>
-<p>#####<strong><1.1>什么是正则表达式</1.1></strong></p>
-<p>&emsp;&emsp;记得我初次接触正则表达式到深入了解它，就一感觉，真长真复杂真难记，也许是我没有这方面的基础所以学起来才会显得吃力吧！到最后还是把它拿下，就跟交女朋友成功一样的喜悦，因此，我决定把它写成博客跟大家分享，不足之处希望大家能够提出来，我会稍加改进。</p>
-<p>&emsp;&emsp;在老套机械化地使用抽象文字来解释“什么是正则表达式”之前，先来想想我们使用office软件中的“查找”功能。该功能似乎很简单，比如说，想要在当前文档中找到hello，只需要在查找项中输入hello就可以，可能大家没有意识到，这其实就是一种简单的“表达式”查找工具会使用某种匹配方式进行全文搜索，其工作原理也非常简单，那就是先找到h，然后看后面是不是e，再看后面是不是l，以此类推。如果全部符合，那就是匹配到了。但这里也可能会出现一个问题，这种简单的查找其实也能匹配到jelloworld（注意中间没有空格）这样的文字，不过office的查找还提供了高级功能，选中“全字匹配”就只会匹配到hello了。</p>
-<p>&emsp;&emsp;在linux文本模式中，没有类似于office的图形化匹配工具，但可以使用“正则表达式”来做相同的匹配工作。还是以精确匹配hello为例，在正则表达式中就可以用<code>\&lt;hello\&gt;</code>来表示，这里使用到了正则表达式的特殊符号。正则表达式中还有更多的更复杂的符号可以用来代表其他有意义的字符，这实际上是一种抽象的过程。</p>
-<p>&emsp;&emsp;说到这里，再解释什么是正则表达式就显得简单明了了：正则表达式就是能用某种模式去匹配一类字符串的公式，它是由一串字符和元字符构成的字符串。所谓元字符，就是用以阐述字符表达式的内容，转换和描述各种操作信息的字符。</p>
-<hr>
-<p>#####<strong><1.2>基础的正则表达式</1.2></strong></p>
-<p>&emsp;&emsp;上一节中介绍什么是正则表达式的时候，我们第一次看到了<code>\&lt;hello\&gt;</code>,其中的<code>\&lt;和\&gt;</code>就是正则表达式中的两个特殊字符，也叫元字符，它代表的意思是一个单词开始或结束的位置。下面进一步介绍其他的一些元字符，以加深大家对正则表达式的理解。</p>
-<p>&emsp;&emsp; <strong>1“ . ”(一个点) 符号</strong></p>
-<p>&emsp;&emsp;点符号用于匹配除换行符之外的任意一个字符。例如：<strong><code>r.t</code></strong>可以匹配<strong><code>rot、rut</code></strong>，但是不能匹配<strong><code>root</code></strong>，若是使用<strong><code>r..t</code></strong>就可以匹配到<strong><code>root、ruut、r     t</code></strong>（中间是两个空格）等。下面例子是从/etc/passwd中搜索出“包含r，紧跟着两个字符，后面再接t”的行</p>
-<p><img src="http://img.blog.csdn.net/20170913003124405?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><br><br>&emsp;&emsp; <strong>2 “ * “符号</strong></p>
-<p>&emsp;&emsp; <strong><code>&quot; * &quot;</code></strong>符号用于匹配前一个字符0次或任意多次，比如<strong><code>ab*</code></strong>，可以匹配<strong><code>a、ab、abb</code></strong>等。 <strong><code>&quot; * &quot;</code></strong>号经常和<strong><code>“ . ”</code></strong>符号加在一起使用。比如<strong>“.* ”</strong>代表任意长度的不包含换行的字符。下面的例子试图找到连续的r字母紧跟着t的行。由于在/etc/passwd中没有rt、rrt这样的匹配，所以该表达式实际上只找出了包含t的行（r匹配了0次）</p>
-<p><img src="http://img.blog.csdn.net/20170913091228159?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><br><br>&emsp;&emsp;如果不上面的<strong><code>‘r*t’</code></strong>换成<strong><code>‘r .*t’</code></strong>,代表查找包含字母r，后面紧跟任意长度的字符，再跟一个字母t的行。如下图所示：</p>
-<p><img src="http://img.blog.csdn.net/20170913084844113?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><br><br>&emsp;&emsp;<strong><code>3 &quot;\{n,m\}&quot;符号</code></strong></p>
-<p>&emsp;&emsp;虽然 <strong>“ * ”</strong>可用于重复匹配前一个字符，但却不能精确地控制匹配的重复次数，使用<strong><code>“\{n,m\}”</code></strong>符号则能更加灵活地控制字符的重复次数，典型的有以下3种形式：</p>
-<blockquote>
-<p><strong><code>\{n\}</code></strong>   匹配前面的字符n次。下例匹配的是包含root的行（r和t中包含两个o）。</p>
-<p><img src="http://img.blog.csdn.net/20170913090214184?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-</blockquote>
-<p><br></p>
-<blockquote>
-<p><strong><code>\{n,\}</code></strong> 匹配前面的字符至少n次以上（含n次）。</p>
-<p><img src="http://img.blog.csdn.net/20170913091756507?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-</blockquote>
-<p><br></p>
-<blockquote>
-<p><strong><code>\{n,m\}</code></strong>  匹配前面的字符n到m次</p>
-<p><img src="http://img.blog.csdn.net/20170913093033287?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-</blockquote>
-<p><br><br>&emsp;&emsp;<strong>4 “^” 符号</strong><br>&emsp;&emsp;这个符号位于键盘6的上面，又称尖角号。这个符号用于匹配开头的字符。比如说<strong><code>&quot;^root”</code></strong>匹配的是以字母root开始的行。</p>
-<p><img src="http://img.blog.csdn.net/20170913093734573?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><br><br>&emsp;&emsp;<strong>5 “$”符号</strong></p>
-<p>&emsp;&emsp;和上面的尖角号相对，<strong><code>&quot;$&quot;</code></strong>用于尾部，比如说<strong><code>“abc$”</code></strong> 代表的是以abc结尾的行。如果是<strong><code>“^$”</code></strong>则代表该行为空， 因为^和$间什么都没有。下例匹配的是以r开头，中间有一串任意字符，以h结尾的行。</p>
-<p><img src="http://img.blog.csdn.net/20170913095653658?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><br><br>&emsp;&emsp;<strong>6 “[ ]”符号</strong></p>
-<p>&emsp;&emsp;这是一对方括号，用于匹配方括号内出现的任一字符。比如说单项选择题的答案，可能是A,B,C,D中的任意一种，用正则表达式表示就是<strong><code>[ABCD]</code></strong>。如果遇到比较大范围的匹配，比如说要匹配任意一个大写字母，就需要<strong><code>“-”</code></strong>号做范围限定，写成<strong><code>[A-Z]</code></strong>，要匹配所有字母则写成<strong><code>[A-Za-z]</code></strong>。一定要注意，这里<strong><code>“-”</code></strong>的作用不是充当一个字符。</p>
-<p>&emsp;&emsp;如果是要匹配不是大写字母A,B,C,D的字符又该怎么写呢？还记得上面的<strong><code>“^”</code></strong>号吗，如果这个字符出现在<strong><code>[ ]</code></strong>中，则代表取反，也就是“不是”的意思。那这里的写法就是<strong><code>[^A-D]</code></strong>,事情就变得复杂了。</p>
-<p>&emsp;&emsp;这里举个例子，看如何匹配手机号。手机号是11位连续的数字，第一位一定是1，所以表示为<strong><code>“^1”</code></strong>；第二位有可能是3（移动）或8（联通），表示为<strong><code>“[38]”</code></strong>; 后面连续9个任意数字，表示为<strong><code>“[0-9]\{9\}”</code></strong>; 所以整个表达式应该写为 <strong><code>“^1[38][0-9]\{9\}”</code></strong>。</p>
-<p><br><br>&emsp;&emsp;<strong>7 “\”符号</strong></p>
-<p>&emsp;&emsp;假设有个固定电话号码021-88888888，当然也可以写成021  88888888（区号和电话号码之间用空格隔开），它们的不同之处就是区号和电话号码之间使用的符号不同，一个是<strong><code>“-”</code></strong>，一个是空格。那么，对于这个电话号码要怎么匹配呢，很容易地想到应该用<strong><code>“[ ]”</code></strong>来匹配。但是这么写：<strong><code>[-]</code></strong>,对吗？答案是否定的，因为<strong><code>“-”</code></strong>放到<strong><code>“[ ]”</code></strong>中有特别的含义。为了表示其作为一个字符的本意，就要使用<strong><code>“\”</code></strong>符了。这个符号代表转义字符，我们可以对很多特殊的字符进行“转义”让它只代表字符本身，因此这里的写法就应该是<strong><code>[\ \-]</code></strong>。</p>
-<p>&emsp;&emsp;再举个例子，之前我们了解到<strong><code>“.*”</code></strong>代表的是任意长度的不包含换行的重复字符。但是如果想要匹配任意长度的点号呢？这时使用转义字符就对了：<strong><code>“\.*”</code></strong>。如果想要对<strong><code>“\”</code></strong>符号进行转义，就可以这样写：<strong>“\ \”</strong>。</p>
-<p><br><br>&emsp;&emsp;<strong>8 “\&lt;”符号和“>”符号</strong></p>
-<p>&emsp;&emsp;这两个符号分别用于界定单词的左边界和右边界。比如说<strong><code>“\&lt;hello”</code></strong>用于匹配以<strong><code>“hello”</code></strong>开头的单词；而<strong><code>“hello\&gt;”</code></strong>则用于匹配以<strong><code>“hello”</code></strong>结尾的单词。还可以使用它们的组合——<strong><code>“\&lt;\&gt;”</code></strong>用于精确匹配一个字符串。所以<strong><code>“\&lt;hello\&gt;”</code></strong>可精确匹配单词hello，而不是helloworld等。如下所示：</p>
-<p><table><tr><td bgcolor="#FF00FF"><figure class="highlight plain"><figcaption><span>~]#echo "hello" | grep '\<hello\>'</hello\></span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hello</div></pre></td></tr></table></figure></td></tr></table></p>
-<p><table><tr><td bgcolor="#54FF9F"><figure class="highlight plain"><figcaption><span>~]#echo "hellod" | grep '\<hello\>'</hello\></span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[root@centos7 ~]#```这里没有输出，表示匹配不成功</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;以上讲的是8钟常见的元字符，还有一些不太常用的字符，这些字符中有不少可以使用之前讲的8种基础元字符来表示，所以我在此就仅作一些列举和简单的说明。</div><div class="line"></div><div class="line">&lt;br /&gt;</div><div class="line">&amp;emsp;&amp;emsp;**9 &quot;\d&quot; 符号**</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;匹配一个数字，等价于[0-9]，使用grep匹配这种正则表达式时可能会遇到无法匹配的问题。示例如下：</div><div class="line">&amp;emsp;&amp;emsp;&lt;small&gt;**`#123是一个数字，用[0-9]匹配成功`**</div><div class="line"></div><div class="line">&lt;table&gt;&lt;tr&gt;&lt;td bgcolor=#FF83FA&gt;```[root@centos7 ~]#echo 123 | grep [0-9]</div><div class="line">123</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;<small><strong><code>#但是用这种方法却匹配不成功</code></strong></small></p>
-<p><table><tr><td bgcolor="#D1EEEE"><figure class="highlight plain"><figcaption><span>~]#echo 123 | grep '\d'</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">[root@centos7 ~]#```&lt;small&gt;     #没有输出表示不成功，为什么呢？</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;&lt;small&gt;**`#这是因为“\d”是一种perl兼容模式的表达式，又称作PCRE，要想使用这种模式的匹配符，需要加上 -p 参数`**</div><div class="line"></div><div class="line">&lt;table&gt;&lt;tr&gt;&lt;td bgcolor=#C0FF3E&gt;```[root@centos7 ~]#echo 123 | grep -p &apos;\d&apos; </div><div class="line">123   ``` &lt;small&gt;#这样就匹配成功了</div><div class="line"></div><div class="line">&lt;br /&gt;</div><div class="line">&amp;emsp;&amp;emsp;**10 &quot;\b&quot;符号**</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;匹配单词的边界，比如“\bhello\b”可精确匹配“hello”单词。</div><div class="line"></div><div class="line">&lt;table&gt;&lt;tr&gt;&lt;td bgcolor= green&gt;```[root@centos7 ~]#echo &quot;hello world&quot; | grep &apos;\bhello\b&apos;</div><div class="line">hello world</div></pre></td></tr></table></figure></td></tr></table></p>
-<p><table><tr><td bgcolor="#D1EEEE"><figure class="highlight plain"><figcaption><span>~]#echo "helloworld" | grep '\bhello\b' </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@centos7 ~]#```   &lt;small&gt;#这里没有匹配</div><div class="line"></div><div class="line">&lt;br /&gt;</div><div class="line">&amp;emsp;&amp;emsp;**11 &quot;\B&quot;符号**</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;匹配非单词的边界，比如hello\B可以匹配“helloworld”中的“hello”</div><div class="line"></div><div class="line">&lt;table&gt;&lt;tr&gt;&lt;td bgcolor=#C0FF3E&gt;```[root@centos7 ~]#echo &quot;helloworld&quot; | grep &apos;\bhello\B&apos;</div><div class="line">helloworld</div></pre></td></tr></table></figure></td></tr></table></p>
-<p><br><br>&emsp;&emsp;<strong>12 “\w”符号</strong></p>
-<p>&emsp;&emsp;匹配字母、数字和下划线，等价于[A-Za-z0-9].</p>
-<p><table><tr><td bgcolor="chartreuse"><figure class="highlight plain"><figcaption><span>~]#echo "a" | grep '\w'</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a</div></pre></td></tr></table></figure></td></tr></table></p>
-<p><table><tr><td bgcolor="citrine"><figure class="highlight plain"><figcaption><span>~]#echo "\\" | grep '\w'</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div></pre></td><td class="code"><pre><div class="line">[root@centos7 ~]#```     &lt;small&gt;#这里没有匹配</div><div class="line"></div><div class="line">&lt;br /&gt;</div><div class="line">&amp;emsp;&amp;emsp;**13 &quot;\W&quot;符号**</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;匹配非字母、非数字、非下划线，等价于[^A-Za-z0-9]。</div><div class="line"></div><div class="line">&lt;table&gt;&lt;tr&gt;&lt;td bgcolor= celeste &gt;```[root@centos7 ~]#echo &quot;\\&quot; | grep &apos;\W&apos;</div><div class="line">\```      	&lt;small&gt; #匹配 \符号</div><div class="line"></div><div class="line">&lt;br /&gt;</div><div class="line">&amp;emsp;&amp;emsp;**14 &quot;\n&quot;符号**</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;匹配一个换行符</div><div class="line"></div><div class="line">&lt;br /&gt;</div><div class="line">&amp;emsp;&amp;emsp;**15 &quot;\r&quot;符号**</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;匹配一个回车符</div><div class="line"></div><div class="line">&lt;br /&gt;</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;**16 &quot;\t&quot;符号**</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;匹配一个制表符</div><div class="line"></div><div class="line">&lt;br /&gt;</div><div class="line">&amp;emsp;&amp;emsp;**17 &quot;\f&quot;符号**</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;匹配一个换页符</div><div class="line"></div><div class="line">&lt;br /&gt;</div><div class="line">&amp;emsp;&amp;emsp;**18 “\s”符号**</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;匹配任何空白字符</div><div class="line"></div><div class="line">&lt;br /&gt;</div><div class="line">&amp;emsp;&amp;emsp;**19 &quot;\S&quot;符号**</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;匹配任何非空白字符</div><div class="line"></div><div class="line">---</div><div class="line">#####**&lt;1.3&gt;扩展的正则表达式**</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;顾名思义，扩展的正则表达式一定是针对基础正则表达式的一些补充，实际上，扩展正则表达式比基础正则表达式多了几个重要的符号。不过要注意的是，在使用这些扩展符号时，需要使用egrep命令。</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;**“？”符号**</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;“？”符号用于匹配前一个字符0次或1次，所以“ro？t”仅能匹配rot或rt。</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;**“+”符号**</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;“+”符号用于匹配前一个字符1次以上，所以“ro+t”就可以匹配rot、root等。</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;**“|”符号**</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;**`“|”`**符合是“或”的意思，即多种可能的罗列，彼此是一种分支关系。比如说有些地区固定电话的区号是4位数，有些地方却是3位数，这样针对不同的区号就有不同的固定电话的表示方式，如下所示：</div><div class="line"></div><div class="line">&gt;&amp;emsp;&amp;emsp;&lt;small&gt;**#区号是3位的固定电话的正则表达式方式**</div><div class="line">&amp;emsp;&amp;emsp;&lt;small&gt;**`^0[0-9]\&#123;2\&#125;-[0-9]\&#123;8\&#125;`**</div><div class="line"></div><div class="line">&gt;&amp;emsp;&amp;emsp;&lt;small&gt;**#区号是4位的固定电话的正则表达式方式**</div><div class="line">&amp;emsp;&amp;emsp;&lt;small&gt;**`^0[0-9]\&#123;3\&#125;-[0-9]\&#123;8\&#125;`**</div><div class="line"></div><div class="line">&gt;&amp;emsp;&amp;emsp;&lt;small&gt;**#两种区号的固定电话号码可以如下写**</div><div class="line">&gt;&amp;emsp;&amp;emsp;&lt;small&gt;**`^0[0-9]\&#123;2,3\&#125;-[0-9]\&#123;8\&#125;`**</div><div class="line"></div><div class="line">&gt;&amp;emsp;&amp;emsp;&lt;small&gt;**#使用“|”符号也可以，但是显然比上面的方式麻烦**</div><div class="line">&gt;&amp;emsp;&amp;emsp;&lt;small&gt;**`^0[0-9]\&#123;2\&#125;-[0-9]\&#123;8\&#125; | ^0[0-9]\&#123;3\&#125;-[0-9]\&#123;8\&#125;`**</div><div class="line"></div><div class="line">&lt;br /&gt;</div><div class="line">&amp;emsp;&amp;emsp;**&quot;()&quot;符号**</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;&quot;()&quot;符号通常需要和**`“|”`**符号联合使用，用于枚举一系列可替换的字符。比如说固定电话的区号和电话号码之间，可能用**`“-”`**符号或者一个空格连接，用于匹配的正则表达式如下：</div><div class="line"></div><div class="line">&gt;&amp;emsp;&amp;emsp;&lt;small&gt;**#使用“（）”和“|”定义连接符的写法**</div><div class="line">&amp;emsp;&amp;emsp;&lt;small&gt;**`#这样021-88888888和0511  88888888都可以匹配`**</div><div class="line">&amp;emsp;&amp;emsp;&lt;small&gt;**`^0[0-9]\&#123;2,3\&#125; (-|) [0-9]\&#123;8\&#125;`**</div><div class="line"></div><div class="line">&gt;&amp;emsp;&amp;emsp;&lt;small&gt;#这种写法可以换用“[ ]”符号表示</div><div class="line">&gt;&amp;emsp;&amp;emsp;&lt;small&gt;**`^0[0-9]\&#123;2,3\&#125; ( -| ) [0-9]\&#123;8\&#125;`**</div><div class="line"></div><div class="line">&lt;br /&gt;</div><div class="line">&amp;emsp;&amp;emsp;虽然以上两种写法没有本质上的不同，因为**`“（）”`**和**`“|”`**可以和**`“[ ]”`**相互混用，但是在某些场景下，**`“（）”`**和**`“|”`**可以做的更多，比如像hard、hold或hood等这类开头和结尾的字母都一样的单词，要匹配这些就必须使用**`“（）”`**和**`“|”`**了。如下表示：</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;**#使用“（）”和“|”匹配hard、hold或hood**</div><div class="line">&amp;emsp;&amp;emsp;**`h(ar|oo|ol)d`**</div><div class="line"></div><div class="line">---</div><div class="line"></div><div class="line"></div><div class="line">&lt;br /&gt;</div><div class="line">####**&lt;2&gt; 正则表达式示例**</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;前面我们了解了grep的一些基本用法，但是他的功能还远远不止这些。grep的英文是Global search Regular Expression and print out the line,即全面搜索正则表达式并打印出匹配行。通过前面的一些实例我们也看到，grep和正则表达式结合使用后产生的强大搜索效果。下面我将通过更多的示例来介绍正则表达式和grep结合的用法，帮助大家更深入地理解和认识正则表达式和grep。由于正则表达式中含有较多的特殊的字符，所以结合grep时，最好用单引号将正则表达式括起来，以免造成错误。</div><div class="line"></div><div class="line">&amp;emsp;&amp;emsp;为了演示grep命令的用法，首先创建一个文RegExp.txt，文件内容如下所示：</div><div class="line"></div><div class="line">&lt;table&gt;&lt;tr&gt;&lt;td bgcolor=#54FF9F&gt;```[root@centos7 ~]#cat RegExp.txt </div><div class="line">-------TEXT   BEGIN----------</div><div class="line">good morning teacher</div><div class="line">hello world is a script</div><div class="line">gold sunshine looks beautiful</div><div class="line">golden time flies</div><div class="line">god bless me</div><div class="line">what a delicious food</div><div class="line">they teast Good</div><div class="line">you fell gald</div><div class="line">worng word gooood</div><div class="line">wrong word g10d</div><div class="line">wrong word g12d</div><div class="line">wrong word g13d</div><div class="line">www.helloworld.com</div><div class="line">www@helloworld@com</div><div class="line">Upper case</div><div class="line">100% means pure</div><div class="line">php have a gd module</div><div class="line">-------TEXT   END--------</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;接下来一起回顾grep的基本用法：</p>
-<p>&emsp;&emsp;#搜索含有good单词的行<br>&emsp;&emsp;#注意：Grep默认是区分大小写的，所以这里只会打印出包含小写good的行</p>
-<p><table><tr><td bgcolor="cerise"><figure class="highlight plain"><figcaption><span>~]#grep 'good' RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">good morning teacher</div></pre></td></tr></table></figure></td></tr></table></p>
-<p><br><br>&emsp;&emsp;#搜索含有good单词的行，不区分大小写</p>
-<p><table><tr><td bgcolor="bisque"><figure class="highlight plain"><figcaption><span>~]#grep -i 'good' RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">good morning teacher</div><div class="line">they teast Good</div></pre></td></tr></table></figure></td></tr></table></p>
-<p><br><br>&emsp;&emsp;#统计不含good单词的行的行数，不区分大小写</p>
-<p><table><tr><td bgcolor="#C0FF3E"><figure class="highlight plain"><figcaption><span>~]#grep -ivc 'good' RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">19</div></pre></td></tr></table></figure></td></tr></table></p>
-<p><br><br>&emsp;&emsp;下面可以正式介绍正则表达式和grep结合的用法了。</p>
-<p>&emsp;&emsp;1）使用<strong><code>“^”</code></strong>匹配行首，示例如下：<br>&emsp;&emsp;#搜索以good开头的行</p>
-<p><table><tr><td bgcolor="azure"><figure class="highlight plain"><figcaption><span>~]#grep '^good' RegExp.txt   </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">good morning teacher</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;2）使用<strong><code>“$”</code></strong>匹配行尾，示例如下：<br>&emsp;&emsp;#搜索以Good结尾的行</p>
-<p><table><tr><td bgcolor="#D1EEEE"><figure class="highlight plain"><figcaption><span>~]#grep 'Good$' RegExp.txt  </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">they teast Good</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;3）使用<strong><code>&quot;^$&quot;</code></strong>组合，匹配空行，下面的命令可以计算文件中共有多少行空行：<br>&emsp;&emsp;#搜索空行的行数</p>
-<p><table><tr><td bgcolor="cornsilk"><figure class="highlight plain"><figcaption><span>~]#grep -c '^$' RegExp.txt      </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">2</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;4）使用方括号匹配多种可能，示例如下：<br>&emsp;&emsp;#搜索包含Good和good的行</p>
-<p><table><tr><td bgcolor="cornflower"><figure class="highlight plain"><figcaption><span>~]#grep '[Gg]ood' RegExp.txt   </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">good morning teacher</div><div class="line">they teast Good</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;5 ) 在方括号中使用<strong><code>“^”</code></strong>做反选，示例如下：<br>&emsp;&emsp;#搜索一个包含ood的行，但是不能是Good和good<br>&emsp;&emsp;#记住在方括号中使用尖角号表示“非”</p>
-<p><table><tr><td bgcolor="espresso"><figure class="highlight plain"><figcaption><span>~]#grep '[^Gg]ood' RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">what a delicious food</div><div class="line">worng word gooood</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;6）使用<strong><code>“.”</code>号</strong>，示例如下：<br>&emsp;&emsp;#搜索包含一个词，该词以g开头，紧接着是两个任意字符、再接着是一个d的行。</p>
-<p><table><tr><td bgcolor="rainbow"><figure class="highlight plain"><figcaption><span>~]#grep 'g..d' RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">good morning teacher</div><div class="line">gold sunshine looks beautiful</div><div class="line">golden time flies</div><div class="line">you fell gald</div><div class="line">wrong word g10d</div><div class="line">wrong word g12d</div><div class="line">wrong word g13d</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;#搜索包含一个词，该词以G或g开头，紧接着 是两个任意字符，再接着是一个d的行。</p>
-<p><table><tr><td bgcolor="peach"><figure class="highlight plain"><figcaption><span>~]#grep '[Gg]..d' RegExp.txt   </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">good morning teacher</div><div class="line">gold sunshine looks beautiful</div><div class="line">golden time flies</div><div class="line">they teast Good</div><div class="line">you fell gald</div><div class="line">wrong word g10d</div><div class="line">wrong word g12d</div><div class="line">wrong word g13d</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;#搜索这样一些行，该行包含某个单词，该词满足如下条件：<br>&emsp;&emsp;#1.第一个字符可以是G或g<br>&emsp;&emsp;#2.第二个字符可以是1或0<br>&emsp;&emsp;#3.第三个字符可以是换行符之外的任意字符<br>&emsp;&emsp;#4.第四个字符一定是d</p>
-<p><table><tr><td bgcolor="#54FF9F"><figure class="highlight plain"><figcaption><span>~]#grep '[Gg][1o].d' RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">good morning teacher</div><div class="line">gold sunshine looks beautiful</div><div class="line">golden time flies</div><div class="line">they teast Good</div><div class="line">wrong word g10d</div><div class="line">wrong word g12d</div><div class="line">wrong word g13d</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;7）使用精确匹配，示例如下：<br>&emsp;&emsp;#搜索含有gold的行<br>&emsp;&emsp;#从搜索结果中发现golden也被匹配出来 了</p>
-<p><table><tr><td bgcolor="#FF00FF"><figure class="highlight plain"><figcaption><span>~]#grep 'gold' RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">gold sunshine looks beautiful</div><div class="line">golden time flies</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;#正如上例所示，一般搜索时，想要搜索含有gold的行，发现golden也匹配了<br>&emsp;&emsp;#现在我们需要精确匹配到gold这个单词的行</p>
-<p><table><tr><td bgcolor="#C0FF3E"><figure class="highlight plain"><figcaption><span>~]#grep '\<gold\>' RegExp.txt  </gold\></span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gold sunshine looks beautiful</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;#用<strong><code>“\b”</code></strong>的效果和<strong><code>“\&lt;\&gt;”</code></strong>一致</p>
-<p><table><tr><td bgcolor="#54FF9F"><figure class="highlight plain"><figcaption><span>~]#grep '\bgold\b' RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gold sunshine looks beautiful</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;8）使用<strong><code>“*”</code></strong>号，示例如下:<br>&emsp;&emsp;#搜索这样一些行，该行包含某个单词，该词满足如下条件：<br>&emsp;&emsp;#1.以g开头<br>&emsp;&emsp;#2.g后面跟零到无限个o<br>&emsp;&emsp;#3.零到无限个o后面跟d</p>
-<p><table><tr><td bgcolor="#54FF9F"><figure class="highlight plain"><figcaption><span>~]#grep go*d RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">good morning teacher</div><div class="line">god bless me</div><div class="line">worng word gooood</div><div class="line">php have a gd module</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;9）使用<strong><code>“.*”</code></strong>号,示例如下：<br>&emsp;&emsp;#搜索这样一些行，该行包含某个单词，该单词满足如下条件：<br>&emsp;&emsp;#1.以g开头<br>&emsp;&emsp;#2.g后面一定有字符<br>&emsp;&emsp;#3.最后是d</p>
-<p><table><tr><td bgcolor="#54FF9F"><figure class="highlight plain"><figcaption><span>~]#grep 'g.*d' RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">good morning teacher</div><div class="line">gold sunshine looks beautiful</div><div class="line">golden time flies</div><div class="line">god bless me</div><div class="line">you fell gald</div><div class="line">worng word gooood</div><div class="line">wrong word g10d</div><div class="line">wrong word g12d</div><div class="line">wrong word g13d</div><div class="line">php have a gd module</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;10）使用<strong><code>“-”</code></strong>号，示例如下：<br>&emsp;&emsp;#文件中有一些拼写错误的单词，发现是把g1od中的o字母写成0了</p>
-<p><table><tr><td bgcolor="#FF00FF"><figure class="highlight plain"><figcaption><span>~]#grep 'g1[0-9]d' RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wrong word g10d</div><div class="line">wrong word g12d</div><div class="line">wrong word g13d</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;11）使用<strong><code>&quot;\&quot;</code></strong>做字符转义，示例如下：<br>&emsp;&emsp;#搜索文件中包含域名www.helloworld.com的行<br>&emsp;&emsp;#从搜索的结果来看，这里的”.”号被解析成了除换行符外的任意字符<br>&emsp;&emsp;#想要把这个点只当作一个字符点来用，就需要对其使用转义符</p>
-<p><table><tr><td bgcolor="orange"><figure class="highlight plain"><figcaption><span>~]#grep 'www.helloworld.com' RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">www.helloworld.com</div><div class="line">www@helloworld@com</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;#这里将点做转义，则输出的结果满足预期</p>
-<p><table><tr><td bgcolor="pink"><figure class="highlight plain"><figcaption><span>~]#grep 'www\.helloworld\.com' RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">www.helloworld.com</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;12）使用<strong><code>&quot;\{\}&quot;</code></strong>号，示例如下：<br>&emsp;&emsp;#文档中有一个单词good被拼写错了，多写了几个o<br>&emsp;&emsp;#搜索一字母g开头包含两个以上o的单词</p>
-<p><table><tr><td bgcolor="#54FF9F"><figure class="highlight plain"><figcaption><span>~]#grep 'go\&#123;2,\&#125;' RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">good morning teacher</div><div class="line">worng word gooood</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;#搜索以字母g开头，中间正好4个o的单词</p>
-<p><table><tr><td bgcolor="#54FF9F"><figure class="highlight plain"><figcaption><span>~]#grep 'go\&#123;4\&#125;' RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">worng word gooood</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;13）特殊的POSIX字符，示例如下：<br>&emsp;&emsp;#grep支持一类特殊的POSIX字符，列举如下：</p>
-<blockquote>
-<p>[:alnum:] ——————文本数字字符<br>[:alpha :] —————— 文字字符<br>[:digit:]————————数字字符<br>[:graph:]———————非空字符（非空格、控制字符）<br>[:lower:]————————小写字符<br>[:cntrl:]————————控制字符<br>[:print:]————————非空字符（包括空格）<br>[:punct:]————————标点符号<br>[:space:]————————所有空白字符（新行、空格、制表符）<br>[:upper:]————————大写字符<br>[:xdigit:]————————十六进制数字（0-9，a-f，A-F）</p>
-</blockquote>
-<p>&emsp;&emsp;#搜索以大写字母开头的行</p>
-<p><table><tr><td bgcolor="nickel"><figure class="highlight plain"><figcaption><span>~]#grep ^[[:upper:]] RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Upper case</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;#搜索以数字开头的行</p>
-<p><table><tr><td bgcolor="palegoldenrod"><figure class="highlight plain"><figcaption><span>~]#grep ^[[:digit:]] RegExp.txt      </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">100% means pure</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;14）使用扩展的正则表达式egrep，示例如下：<br>&emsp;&emsp;#搜索g和d之间至少有一个o的行<br>&emsp;&emsp;#“+”代表匹配前面的字符1次以上（含1次）</p>
-<p><table><tr><td bgcolor="gold"><figure class="highlight plain"><figcaption><span>~]#egrep 'go+d' RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">good morning teacher</div><div class="line">god bless me</div><div class="line">worng word gooood</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;#搜索g和d之间只有0个或1个o的行（0次或1次）<br>&emsp;&emsp;#“？”代表匹配前面的字符1次以上</p>
-<p><table><tr><td bgcolor="plum"><figure class="highlight plain"><figcaption><span>~]#egrep 'go?d' RegExp.txt  </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">god bless me</div><div class="line">php have a gd module</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;#搜索有glad或gold的行</p>
-<p><table><tr><td bgcolor="plaid"><figure class="highlight plain"><figcaption><span>~]#egrep 'glad|gold' RegExp.txt </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gold sunshine looks beautiful</div><div class="line">golden time flies</div><div class="line">you fell glad</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;#搜索有glad或gold的行的另一种写法</p>
-<p><table><tr><td bgcolor="olive"><figure class="highlight plain"><figcaption><span>~]#egrep 'g(la|ol)d' RegExp.txt          </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gold sunshine looks beautiful</div><div class="line">golden time flies</div><div class="line">you fell glad</div></pre></td></tr></table></figure></td></tr></table></p>
-<p>&emsp;&emsp;从上面的例子可以看出，正则表达式为文件行搜索提供了强大的支持，使得搜索更为灵活，但同时也加大了使用和读写难度。要解决这个问题，只有不断地多读多用，才能较为深刻地理解正则表达式。</p>
-<blockquote>
-<p>——<em>本文参考王军《Linux系统命令和shell编程》</em></p>
-</blockquote>
-<p>由于文本中使用了一些Markdown扩展的功能（如表格、脚注、内嵌HTML等等），导致文章显示不是很完整，欢迎大家访问原文(<a href="http://blog.csdn.net/wyxtnbp/article/details/77953183" target="_blank" rel="external">http://blog.csdn.net/wyxtnbp/article/details/77953183</a>)</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-	
-	<div>
-		
-	</div>
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.yumufan.top/2017/09/11/德-摩根定律/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2070,7 +1773,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2414,7 +2117,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共13.2k字</span>
+  <span class="post-count">博客全站共8.4k字</span>
 </div>
 
         
