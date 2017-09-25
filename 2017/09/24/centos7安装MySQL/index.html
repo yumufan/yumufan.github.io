@@ -90,7 +90,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="雨巷、散文," />
+  <meta name="keywords" content="MySQL," />
 
 
 
@@ -108,26 +108,21 @@
 
 
 
-<meta name="description" content="&amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp;撑着油纸伞，独自&amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp;彷徨在悠长、悠长&amp;ems">
-<meta name="keywords" content="雨巷、散文">
+<meta name="description" content="#####一，系统环境 [root@centos7 ~]# yum search libaio CentOS Linux release 7.1.1503 (Core)  #查看版本 #####二，安装 [root@centos7 ~]# yum install mysql ........ Installed:   mariadb.x86_64 1:5.5.52-1.el7 Dependency">
+<meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《雨巷》-戴望舒">
-<meta property="og:url" content="http://www.yumufan.top/2017/09/15/雨巷/index.html">
+<meta property="og:title" content="centos7安装的MySQL">
+<meta property="og:url" content="http://www.yumufan.top/2017/09/24/centos7安装MySQL/index.html">
 <meta property="og:site_name" content="剑气忽来不着意，自称便是酒中仙。">
-<meta property="og:description" content="&amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp;撑着油纸伞，独自&amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp;彷徨在悠长、悠长&amp;ems">
+<meta property="og:description" content="#####一，系统环境 [root@centos7 ~]# yum search libaio CentOS Linux release 7.1.1503 (Core)  #查看版本 #####二，安装 [root@centos7 ~]# yum install mysql ........ Installed:   mariadb.x86_64 1:5.5.52-1.el7 Dependency">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://img.blog.csdn.net/20170915184028852?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170915184057283?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170915184116017?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170915184257188?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170915184415198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170915184713589?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20170915184810484?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-09-15T10:48:45.974Z">
+<meta property="og:image" content="http://img.blog.csdn.net/20170925153718757?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170925154506941?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-09-25T08:22:28.484Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="《雨巷》-戴望舒">
-<meta name="twitter:description" content="&amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp;撑着油纸伞，独自&amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp; &amp;emsp;彷徨在悠长、悠长&amp;ems">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20170915184028852?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="centos7安装的MySQL">
+<meta name="twitter:description" content="#####一，系统环境 [root@centos7 ~]# yum search libaio CentOS Linux release 7.1.1503 (Core)  #查看版本 #####二，安装 [root@centos7 ~]# yum install mysql ........ Installed:   mariadb.x86_64 1:5.5.52-1.el7 Dependency">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170925153718757?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -157,13 +152,13 @@
 
 
 
-  <link rel="canonical" href="http://www.yumufan.top/2017/09/15/雨巷/"/>
+  <link rel="canonical" href="http://www.yumufan.top/2017/09/24/centos7安装MySQL/"/>
 
 
 
 
 
-  <title>《雨巷》-戴望舒 | 剑气忽来不着意，自称便是酒中仙。</title>
+  <title>centos7安装的MySQL | 剑气忽来不着意，自称便是酒中仙。</title>
   
 
 
@@ -375,7 +370,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yumufan.top/2017/09/15/雨巷/">
+    <link itemprop="mainEntityOfPage" href="http://www.yumufan.top/2017/09/24/centos7安装MySQL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="喻木凡">
@@ -392,7 +387,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">《雨巷》-戴望舒</h1>
+          <h1 class="post-title" itemprop="name headline">centos7安装的MySQL</h1>
         
 
         <div class="post-meta">
@@ -404,8 +399,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-15T18:47:48+08:00">
-                2017-09-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-24T16:25:53+08:00">
+                2017-09-24
               </time>
             
 
@@ -414,28 +409,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/散文诗集/" itemprop="url" rel="index">
-                    <span itemprop="name">散文诗集</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -463,7 +436,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  257
+                  1,832
                 </span>
               
 
@@ -479,7 +452,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  9
                 </span>
               
             </div>
@@ -500,7 +473,157 @@
       
 
       
-        <p>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;撑着油纸伞，独自<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;彷徨在悠长、悠长<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;又寂寥的雨巷<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;我希望逢着<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;一个丁香一样地<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;结着愁怨的姑娘<br><img src="http://img.blog.csdn.net/20170915184028852?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>　<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;她是有<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;丁香一样的颜色<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;丁香一样的芬芳<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;丁香一样的忧愁<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;在雨中哀怨<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;哀怨又彷徨<br><img src="http://img.blog.csdn.net/20170915184057283?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>　<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;她彷徨在这寂寥的雨巷<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;撑着油纸伞<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;像我一样<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;像我一样地<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;默默行着<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;寒漠、凄清，又惆怅<br><img src="http://img.blog.csdn.net/20170915184116017?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>　<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;她默默地走近<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;走近，又投出<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;太息一般的眼光<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;她飘过<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;像梦一般地<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;像梦一般地凄婉迷茫<br><img src="http://img.blog.csdn.net/20170915184257188?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>　<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;像梦中飘过<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;一枝丁香地<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;我身旁飘过这女郎<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;她静默地远了、远了<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;到了颓圮的篱墙<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;走尽这雨巷<br><img src="http://img.blog.csdn.net/20170915184415198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>　<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;在雨的哀曲里<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;消了她的颜色<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;散了她的芬芳<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;消散了，甚至她的<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;太息般的眼光<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;丁香般的惆怅<br><img src="http://img.blog.csdn.net/20170915184713589?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>　<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;撑着油纸伞，独自<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;彷徨在悠长、悠长<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;又寂寥的雨巷<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;我希望飘过<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;一个丁香一样地<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;结着愁怨的姑娘<br><img src="http://img.blog.csdn.net/20170915184810484?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+        <p>#####<strong>一，系统环境</strong></p>
+<p><table><tr><td bgcolor="##00FFFF"><code>[root@centos7 ~]# yum search libaio
+CentOS Linux release 7.1.1503 (Core)</code>  <font color="#8470FF">#查看版本</font></td></tr></table></p>
+<p>#####<strong>二，安装</strong></p>
+<p><table><tr><td bgcolor="#7FFFD4"><code>[root@centos7 ~]# yum install mysql
+........
+Installed:
+  mariadb.x86_64 1:5.5.52-1.el7
+Dependency Installed:
+  mariadb-libs.x86_64 1:5.5.52-1.el7
+Complete!
+........
+[root@centos7 ~]# yum install mysql-server
+........
+Installed:
+  mariadb-devel.x86_64 1:5.5.52-1.el7
+Complete!
+........</code><font color="#8470FF">#yum安装，过程省略</font></td></tr></table></p>
+<p><font color="#0000FF">安装的MySQL和的mysql-devel的都成功，但是安装的MySQL服务器失败，如下所示</font></p>
+<p><table><tr><td bgcolor="#8A2BE2"><code>[root@centos7 ~]# yum install mysql-server
+Loaded plugins: fastestmirror
+Repository epel is listed more than once in the configuration
+Loading mirror speeds from cached hostfile
+No package mysql-server available.
+Error: Nothing to do</code></td></tr></table></p>
+<p><font color="#7FFF00">#加载插件：fastestmirror<br>存储库epel在配置中被多次列出<br>从缓存的主机文件加载镜像速度<br>没有包mysql服务器可用。<br>错误：</font></p>
+<p><font color="#FF7F50">查资料发现是CentOS 7版本将MySQL数据库软件从默认的程序列表中移除，用mariadb代替了。</font></p>
+<p><font color="#FF7F50">有两种解决办法：</font></p>
+<p>#####<strong>方法1：安装MariaDB的</strong></p>
+<p><font color="#808080">MariaDB的数据库管理系统是MySQL的的一个分支，主要由开源社区在维护，采用GPL授权许可开发这个分支的原因之一是：甲骨文公司收购了MySQL的后，有将MySQL的闭源的潜在风险，因此社区采用分支的方式来避开这个风险。MariaDB 的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。</font></p>
+<p><font color="#008000">安装mariadb，大小59 M.</font></p>
+<p><table><tr><td bgcolor="#7CFC00"><code>[root@centos7 ~]# yum install mariadb-server mariadb
+.........
+Installed:
+  mariadb-server.x86_64 1:5.5.52-1.el7
+Dependency Installed:
+  perl-Compress-Raw-Bzip2.x86_64 0:2.061-3.el7            perl-Compress-Raw-Zlib.x86_64 1:2.061-4.el7
+  perl-DBD-MySQL.x86_64 0:4.023-5.el7                     perl-DBI.x86_64 0:1.627-4.el7
+  perl-IO-Compress.noarch 0:2.061-2.el7                   perl-Net-Daemon.noarch 0:0.48-5.el7
+  perl-PlRPC.noarch 0:0.2020-14.el7
+Complete!
+.........</code></td></tr></table></p>
+<p><font color="#20B2AA">安装过程省略，安装完成后设置MariaDB</font></p>
+<p><table><tr><td bgcolor="#FFFF00"><code>[root@centos7 ~]# systemctl start mariadb      #启动MariaDB
+[root@centos7 ~]# systemctl enable mariadb      #设置开机启动
+Created symlink from /etc/systemd/system/multi-user.target.wants/mariadb.service to /usr/lib/systemd/system/mariadb.service.
+[root@centos7 ~]# systemctl status mariadb      #查看MariaDB状态
+● mariadb.service - MariaDB database server
+   Loaded: loaded (/usr/lib/systemd/system/mariadb.service; enabled; vendor preset: disabled)
+   Active: active (running) since Mon 2017-09-24 17:23:09 CST; 33s ago
+ Main PID: 6676 (mysqld_safe)
+   CGroup: /system.slice/mariadb.service
+           ├─6676 /bin/sh /usr/bin/mysqld_safe --basedir=/usr
+           └─6834 /usr/libexec/mysqld --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib64/mysql/p...
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: strongly recommended for production s...s.
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: See the MariaDB Knowledgebase at http...he
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: MySQL manual for more instructions.
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: You can start the MariaDB daemon with:
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: cd &#39;/usr&#39; ; /usr/bin/mysqld_safe --da...l&#39;
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: You can test the MariaDB daemon with ...pl
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: cd &#39;/usr/mysql-test&#39; ; perl mysql-tes...pl
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mysqld_safe[6676]: 170924
+17:23:07 mysqld_safe Logging to &#39;/var/lo...g&#39;.
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mysqld_safe[6676]: 170924
+17:23:07 mysqld_safe Starting mysqld dae...sql
+Sep 24 17:23:09 iz8vbjca1ezyfhdmm3uxovz systemd[1]: Started MariaDB database server.
+Hint: Some lines were ellipsized, use -l to show in full.</code></td></tr></table></p>
+<p><font color="#D02090">启动MySQL</font></p>
+<p><table><tr><td bgcolor="#EE82EE"><code>[root@centos7 ~]# mysql
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 2
+Server version: 5.5.52-MariaDB MariaDB Server
+Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+MariaDB [(none)]&gt;</code></td></tr></table></p>
+<p><font color="#778899">安装mariadb后显示的也是  MariaDB [（无）]&gt;  ，可能看起来有点不习惯。下面是第二种方法。</font></p>
+<hr>
+<p>#####<strong>方式2：从官网下载安装Mysql的</strong></p>
+<p><font color="#A0522D">安装环境：CentOS 7 64位MINI版，安装MySQL</font></p>
+<p><strong>· 配置YUM源</strong></p>
+<p>&lt;font color=”#FF0000’’&gt;在MySQL的官网中下载YUM源RPM安装包：HTTP：//dev.mysql.com/downloads/repo/yum/</p>
+<p><img src="http://img.blog.csdn.net/20170925153718757?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><table><tr><td bgcolor="#00BFFF"><code># 下载mysql源安装包
+shell&gt; wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm# 安装mysql源
+shell&gt; yum localinstall mysql57-community-release-el7-8.noarch.rpm</code></td></tr></table></p>
+<p>&lt;font color=”#A52A2A’’&gt;检查MySQL的源是否安装成功</p>
+<p><table><tr><td bgcolor="#FF1493"><code># 下载mysql源安装包
+shell&gt; wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm# 安装mysql源
+shell&gt; yum localinstall mysql57-community-release-el7-8.noarch.rpm</code></td></tr></table></p>
+<p>&lt;font color=”    ##7B68EE’’&gt;检查MySQL的源安装是否正确<br>看到上图所示表示安装成功。<br>可以修改vim /etc/yum.repos.d/mysql-community.repo源，改变默认安装的MySQL的版本。比如要安装5.6版本，将5.7源的启用= 1改成使能= 0。然后再将5.6源的使能= 0改成启用= 1即可改完之后的效果如下所示：</p>
+<p><img src="http://img.blog.csdn.net/20170925154506941?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><strong>·    安装的MySQL</strong></p>
+<p><table><tr><td bgcolor="##20B2AA"><code>shell&gt; yum install mysql-community-server</code></td></tr></table></p>
+<p><strong>·    启动MySQL的服务</strong></p>
+<p><table><tr><td bgcolor="#8470FF"><code>shell&gt; systemctl start mysqld</code></td></tr></table></p>
+<p><strong>·    开机启动</strong></p>
+<p><table><tr><td bgcolor="#FA8072"><code>shell&gt; systemctl enable mysqld
+shell&gt; systemctl daemon-reload</code></td></tr></table></p>
+<p><strong>·    修改根本地登录密码</strong></p>
+<p>&lt;font color=”    #CD853F’’&gt;MySQL的安装完成之后，在/var/log/mysqld.log文件中给根生成了一个默认密码通过下面的方式找到根默认密码，然后登录MySQL的进行修改：</p>
+<p><table><tr><td bgcolor="#00FF7F"><code>shell&gt; grep &#39;temporary password&#39; /var/log/mysqld.log</code></td></tr></table></p>
+<p><table><tr><td bgcolor="#FF6347"><code>shell&gt; mysql -uroot -p
+mysql&gt; ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;MyNewPass4!&#39;;</code></td></tr></table></p>
+<p><strong>或者</strong></p>
+<p><table><tr><td bgcolor="#FFFF00"><code>mysql&gt; set password for &#39;root&#39;@&#39;localhost&#39;=password(&#39;MyNewPass4!&#39;);</code></td></tr></table></p>
+<p>&lt;font color=”    #FF6347’’&gt;注意：mysql5.7默认安装了密码安全检查插件（validate_password），默认密码检查策略要求密码必须包含：大小写字母，数字和特殊符号，并且长度不能少于8位。否则会提示错误1819（HY000）：您的密码不符合当前的政策要求错误，如下图所示：密码策略提示<br>通过msyql环境变量可以查看密码策略的相关信息：</p>
+<p><table><tr><td bgcolor="#7CFC00"><code>mysql&gt; show variables like &#39;%password%&#39;;</code></td></tr></table></p>
+<p>&lt;font color=”    #FF6347’’&gt;<strong>MySQL的密码策略</strong><br>validate_password_policy：密码策略，默认为MEDIUM策略<br>validate_password_dictionary_file：密码策略文件，策略为强才需要<br>validate_password_length：密码最少长度<br>validate_password_mixed_case_count：大小写字符长度，至少1个<br>validate_password_number_count：数字至少1个<br>validate_password_special_char_count：特殊字符至少1个上述参数是默认策略中等的密码检查规则。</p>
+<p>&lt;font color=”    #FF6347’’&gt;<strong>上述参数是默认策略中等的密码检查规则。</strong></p>
+<p>&lt;font color=”    #4682B4’’&gt;MySQL的官网密码策略详细说明：HTTP：//dev.mysql.com/doc/refman/5.7/en/validate-password-options-variables.html#sysvar_validate_password_policy</p>
+<p><br><br><strong>修改密码策略</strong></p>
+<p>&lt;font color=”    #708090’’&gt;在/etc/my.cnf中文件添加validate_password_policy配置，指定密码策略</p>
+<p><table><tr><td bgcolor="#FF6347"><code># 选择0（LOW），1（MEDIUM），2（STRONG）其中一种，选择2需要提供密码字典文件
+validate_password_policy=0</code></td></tr></table></p>
+<p>&lt;font color=”    #708090’’&gt;如果不需要密码策略，添加的my.cnf文件中添加如下配置禁用即可：</p>
+<p><table><tr><td bgcolor="#9ACD32"><code>validate_password = off</code></td></tr></table></p>
+<hr>
+<p>#####<strong>三，卸载</strong></p>
+<p><strong>·    检查是否安装了MySQL的</strong></p>
+<p><table><tr><td bgcolor="#00FF7F"><code>[root@centos7 ~]# yum list installed | grep mysql
+mysql-community-client.x86_64        5.7.19-1.el7                      @mysql57-community
+mysql-community-common.x86_64        5.7.19-1.el7                      @mysql57-community
+mysql-community-libs.x86_64          5.7.19-1.el7                      @mysql57-community
+mysql-community-libs-compat.x86_64   5.7.19-1.el7                      @mysql57-community
+mysql-community-server.x86_64        5.7.19-1.el7                      @mysql57-community
+mysql57-community-release.noarch     el7-11                            @/mysql57-community-release-el7-11.noarch</code></td></tr></table></p>
+<p><strong>·    卸载</strong></p>
+<p><table><tr><td bgcolor="#A9A9A9"><code>[root@centos7 ~]# yum remove mysql-community-client mysql-community-common mysql-community-libs mysql-community-server mysql57-community-release
+..........
+Running transaction
+  Erasing    : mysql57-community-release-el7-11.noarch                                                        1/5
+  Erasing    : mysql-community-server-5.7.19-1.el7.x86_64                                                     2/5
+  Erasing    : mysql-community-client-5.7.19-1.el7.x86_64                                                     3/5
+  Erasing    : mysql-community-libs-5.7.19-1.el7.x86_64                                                       4/5
+  Erasing    : mysql-community-common-5.7.19-1.el7.x86_64                                                     5/5
+  Verifying  : mysql-community-libs-5.7.19-1.el7.x86_64                                                       1/5
+  Verifying  : mysql-community-common-5.7.19-1.el7.x86_64                                                     2/5
+  Verifying  : mysql-community-client-5.7.19-1.el7.x86_64                                                     3/5
+  Verifying  : mysql57-community-release-el7-11.noarch                                                        4/5
+  Verifying  : mysql-community-server-5.7.19-1.el7.x86_64                                                     5/5
+Removed:
+  mysql-community-client.x86_64 0:5.7.19-1.el7            mysql-community-common.x86_64 0:5.7.19-1.el7
+  mysql-community-libs.x86_64 0:5.7.19-1.el7              mysql-community-server.x86_64 0:5.7.19-1.el7
+  mysql57-community-release.noarch 0:el7-11
+...........
+[root@centos7 ~]# rpm -qa |grep -i mysql
+[root@centos7 ~]# find / -name mysql
+/usr/share/mysql
+/var/lib/mysql
+/var/lib/mysql/mysql
+[root@centos7 ~]# rm -rf /usr/share/mysql /var/lib/mysql /var/lib/mysql/mysql</code></td></tr></table></p>
 
       
     </div>
@@ -565,7 +688,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/雨巷、散文/" rel="tag"><i class="fa fa-tag"></i> 雨巷、散文</a>
+            <a href="/tags/MySQL/" rel="tag"><i class="fa fa-tag"></i> MySQL</a>
           
         </div>
       
@@ -578,8 +701,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/15/背影/" rel="next" title="《背影》-朱自清">
-                <i class="fa fa-chevron-left"></i> 《背影》-朱自清
+              <a href="/2017/09/15/致橡树/" rel="next" title="《致橡树》-舒婷">
+                <i class="fa fa-chevron-left"></i> 《致橡树》-舒婷
               </a>
             
           </div>
@@ -587,10 +710,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/09/15/致橡树/" rel="prev" title="《致橡树》-舒婷">
-                《致橡树》-舒婷 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
