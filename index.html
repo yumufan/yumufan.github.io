@@ -468,159 +468,21 @@
       
         
           
-            <p>#####<strong>一，系统环境</strong></p>
-<p><table><tr><td bgcolor="##00FFFF"><code>[root@centos7 ~]# yum search libaio
-CentOS Linux release 7.1.1503 (Core)</code>  <font color="#8470FF">#查看版本</font></td></tr></table></p>
-<p>#####<strong>二，安装</strong></p>
-<p><table><tr><td bgcolor="#7FFFD4"><code>[root@centos7 ~]# yum install mysql
+          #####一，系统环境
+[root@centos7 ~]# yum search libaio
+CentOS Linux release 7.1.1503 (Core)  #查看版本
+#####二，安装
+[root@centos7 ~]# yum install mysql
 ........
-Installed:
-  mariadb.x86_64 1:5.5.52-1.el7
-Dependency Installed:
-  mariadb-libs.x86_64 1:5.5.52-1.el7
-Complete!
-........
-[root@centos7 ~]# yum install mysql-server
-........
-Installed:
-  mariadb-devel.x86_64 1:5.5.52-1.el7
-Complete!
-........</code><font color="#8470FF">#yum安装，过程省略</font></td></tr></table></p>
-<p><font color="#0000FF">安装的MySQL和的mysql-devel的都成功，但是安装的MySQL服务器失败，如下所示</font></p>
-<p><table><tr><td bgcolor="#8A2BE2"><code>[root@centos7 ~]# yum install mysql-server
-Loaded plugins: fastestmirror
-Repository epel is listed more than once in the configuration
-Loading mirror speeds from cached hostfile
-No package mysql-server available.
-Error: Nothing to do</code></td></tr></table></p>
-<p><font color="#7FFF00">#加载插件：fastestmirror<br>存储库epel在配置中被多次列出<br>从缓存的主机文件加载镜像速度<br>没有包mysql服务器可用。<br>错误：</font></p>
-<p><font color="#FF7F50">查资料发现是CentOS 7版本将MySQL数据库软件从默认的程序列表中移除，用mariadb代替了。</font></p>
-<p><font color="#FF7F50">有两种解决办法：</font></p>
-<p>#####<strong>方法1：安装MariaDB的</strong></p>
-<p><font color="#808080">MariaDB的数据库管理系统是MySQL的的一个分支，主要由开源社区在维护，采用GPL授权许可开发这个分支的原因之一是：甲骨文公司收购了MySQL的后，有将MySQL的闭源的潜在风险，因此社区采用分支的方式来避开这个风险。MariaDB 的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。</font></p>
-<p><font color="#008000">安装mariadb，大小59 M.</font></p>
-<p><table><tr><td bgcolor="#7CFC00"><code>[root@centos7 ~]# yum install mariadb-server mariadb
-.........
-Installed:
-  mariadb-server.x86_64 1:5.5.52-1.el7
-Dependency Installed:
-  perl-Compress-Raw-Bzip2.x86_64 0:2.061-3.el7            perl-Compress-Raw-Zlib.x86_64 1:2.061-4.el7
-  perl-DBD-MySQL.x86_64 0:4.023-5.el7                     perl-DBI.x86_64 0:1.627-4.el7
-  perl-IO-Compress.noarch 0:2.061-2.el7                   perl-Net-Daemon.noarch 0:0.48-5.el7
-  perl-PlRPC.noarch 0:0.2020-14.el7
-Complete!
-.........</code></td></tr></table></p>
-<p><font color="#20B2AA">安装过程省略，安装完成后设置MariaDB</font></p>
-<p><table><tr><td bgcolor="#FFFF00"><code>[root@centos7 ~]# systemctl start mariadb      #启动MariaDB
-[root@centos7 ~]# systemctl enable mariadb      #设置开机启动
-Created symlink from /etc/systemd/system/multi-user.target.wants/mariadb.service to /usr/lib/systemd/system/mariadb.service.
-[root@centos7 ~]# systemctl status mariadb      #查看MariaDB状态
-● mariadb.service - MariaDB database server
-   Loaded: loaded (/usr/lib/systemd/system/mariadb.service; enabled; vendor preset: disabled)
-   Active: active (running) since Mon 2017-09-24 17:23:09 CST; 33s ago
- Main PID: 6676 (mysqld_safe)
-   CGroup: /system.slice/mariadb.service
-           ├─6676 /bin/sh /usr/bin/mysqld_safe --basedir=/usr
-           └─6834 /usr/libexec/mysqld --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib64/mysql/p...
-Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: strongly recommended for production s...s.
-Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: See the MariaDB Knowledgebase at http...he
-Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: MySQL manual for more instructions.
-Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: You can start the MariaDB daemon with:
-Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: cd &#39;/usr&#39; ; /usr/bin/mysqld_safe --da...l&#39;
-Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: You can test the MariaDB daemon with ...pl
-Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: cd &#39;/usr/mysql-test&#39; ; perl mysql-tes...pl
-Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mysqld_safe[6676]: 170924
-17:23:07 mysqld_safe Logging to &#39;/var/lo...g&#39;.
-Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mysqld_safe[6676]: 170924
-17:23:07 mysqld_safe Starting mysqld dae...sql
-Sep 24 17:23:09 iz8vbjca1ezyfhdmm3uxovz systemd[1]: Started MariaDB database server.
-Hint: Some lines were ellipsized, use -l to show in full.</code></td></tr></table></p>
-<p><font color="#D02090">启动MySQL</font></p>
-<p><table><tr><td bgcolor="#EE82EE"><code>[root@centos7 ~]# mysql
-Welcome to the MariaDB monitor.  Commands end with ; or \g.
-Your MariaDB connection id is 2
-Server version: 5.5.52-MariaDB MariaDB Server
-Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.
-Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
-MariaDB [(none)]&gt;</code></td></tr></table></p>
-<p><font color="#778899">安装mariadb后显示的也是  MariaDB [（无）]&gt;  ，可能看起来有点不习惯。下面是第二种方法。</font></p>
-<hr>
-<p>#####<strong>方式2：从官网下载安装Mysql的</strong></p>
-<p><font color="#A0522D">安装环境：CentOS 7 64位MINI版，安装MySQL</font></p>
-<p><strong>· 配置YUM源</strong></p>
-<p>&lt;font color=”#FF0000’’&gt;在MySQL的官网中下载YUM源RPM安装包：HTTP：//dev.mysql.com/downloads/repo/yum/</p>
-<p><img src="http://img.blog.csdn.net/20170925153718757?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><table><tr><td bgcolor="#00BFFF"><code># 下载mysql源安装包
-shell&gt; wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm# 安装mysql源
-shell&gt; yum localinstall mysql57-community-release-el7-8.noarch.rpm</code></td></tr></table></p>
-<p>&lt;font color=”#A52A2A’’&gt;检查MySQL的源是否安装成功</p>
-<p><table><tr><td bgcolor="#FF1493"><code># 下载mysql源安装包
-shell&gt; wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm# 安装mysql源
-shell&gt; yum localinstall mysql57-community-release-el7-8.noarch.rpm</code></td></tr></table></p>
-<p>&lt;font color=”    ##7B68EE’’&gt;检查MySQL的源安装是否正确<br>看到上图所示表示安装成功。<br>可以修改vim /etc/yum.repos.d/mysql-community.repo源，改变默认安装的MySQL的版本。比如要安装5.6版本，将5.7源的启用= 1改成使能= 0。然后再将5.6源的使能= 0改成启用= 1即可改完之后的效果如下所示：</p>
-<p><img src="http://img.blog.csdn.net/20170925154506941?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><strong>·    安装的MySQL</strong></p>
-<p><table><tr><td bgcolor="##20B2AA"><code>shell&gt; yum install mysql-community-server</code></td></tr></table></p>
-<p><strong>·    启动MySQL的服务</strong></p>
-<p><table><tr><td bgcolor="#8470FF"><code>shell&gt; systemctl start mysqld</code></td></tr></table></p>
-<p><strong>·    开机启动</strong></p>
-<p><table><tr><td bgcolor="#FA8072"><code>shell&gt; systemctl enable mysqld
-shell&gt; systemctl daemon-reload</code></td></tr></table></p>
-<p><strong>·    修改根本地登录密码</strong></p>
-<p>&lt;font color=”    #CD853F’’&gt;MySQL的安装完成之后，在/var/log/mysqld.log文件中给根生成了一个默认密码通过下面的方式找到根默认密码，然后登录MySQL的进行修改：</p>
-<p><table><tr><td bgcolor="#00FF7F"><code>shell&gt; grep &#39;temporary password&#39; /var/log/mysqld.log</code></td></tr></table></p>
-<p><table><tr><td bgcolor="#FF6347"><code>shell&gt; mysql -uroot -p
-mysql&gt; ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;MyNewPass4!&#39;;</code></td></tr></table></p>
-<p><strong>或者</strong></p>
-<p><table><tr><td bgcolor="#FFFF00"><code>mysql&gt; set password for &#39;root&#39;@&#39;localhost&#39;=password(&#39;MyNewPass4!&#39;);</code></td></tr></table></p>
-<p>&lt;font color=”    #FF6347’’&gt;注意：mysql5.7默认安装了密码安全检查插件（validate_password），默认密码检查策略要求密码必须包含：大小写字母，数字和特殊符号，并且长度不能少于8位。否则会提示错误1819（HY000）：您的密码不符合当前的政策要求错误，如下图所示：密码策略提示<br>通过msyql环境变量可以查看密码策略的相关信息：</p>
-<p><table><tr><td bgcolor="#7CFC00"><code>mysql&gt; show variables like &#39;%password%&#39;;</code></td></tr></table></p>
-<p>&lt;font color=”    #FF6347’’&gt;<strong>MySQL的密码策略</strong><br>validate_password_policy：密码策略，默认为MEDIUM策略<br>validate_password_dictionary_file：密码策略文件，策略为强才需要<br>validate_password_length：密码最少长度<br>validate_password_mixed_case_count：大小写字符长度，至少1个<br>validate_password_number_count：数字至少1个<br>validate_password_special_char_count：特殊字符至少1个上述参数是默认策略中等的密码检查规则。</p>
-<p>&lt;font color=”    #FF6347’’&gt;<strong>上述参数是默认策略中等的密码检查规则。</strong></p>
-<p>&lt;font color=”    #4682B4’’&gt;MySQL的官网密码策略详细说明：HTTP：//dev.mysql.com/doc/refman/5.7/en/validate-password-options-variables.html#sysvar_validate_password_policy</p>
-<p><br><br><strong>修改密码策略</strong></p>
-<p>&lt;font color=”    #708090’’&gt;在/etc/my.cnf中文件添加validate_password_policy配置，指定密码策略</p>
-<p><table><tr><td bgcolor="#FF6347"><code># 选择0（LOW），1（MEDIUM），2（STRONG）其中一种，选择2需要提供密码字典文件
-validate_password_policy=0</code></td></tr></table></p>
-<p>&lt;font color=”    #708090’’&gt;如果不需要密码策略，添加的my.cnf文件中添加如下配置禁用即可：</p>
-<p><table><tr><td bgcolor="#9ACD32"><code>validate_password = off</code></td></tr></table></p>
-<hr>
-<p>#####<strong>三，卸载</strong></p>
-<p><strong>·    检查是否安装了MySQL的</strong></p>
-<p><table><tr><td bgcolor="#00FF7F"><code>[root@centos7 ~]# yum list installed | grep mysql
-mysql-community-client.x86_64        5.7.19-1.el7                      @mysql57-community
-mysql-community-common.x86_64        5.7.19-1.el7                      @mysql57-community
-mysql-community-libs.x86_64          5.7.19-1.el7                      @mysql57-community
-mysql-community-libs-compat.x86_64   5.7.19-1.el7                      @mysql57-community
-mysql-community-server.x86_64        5.7.19-1.el7                      @mysql57-community
-mysql57-community-release.noarch     el7-11                            @/mysql57-community-release-el7-11.noarch</code></td></tr></table></p>
-<p><strong>·    卸载</strong></p>
-<p><table><tr><td bgcolor="#A9A9A9"><code>[root@centos7 ~]# yum remove mysql-community-client mysql-community-common mysql-community-libs mysql-community-server mysql57-community-release
-..........
-Running transaction
-  Erasing    : mysql57-community-release-el7-11.noarch                                                        1/5
-  Erasing    : mysql-community-server-5.7.19-1.el7.x86_64                                                     2/5
-  Erasing    : mysql-community-client-5.7.19-1.el7.x86_64                                                     3/5
-  Erasing    : mysql-community-libs-5.7.19-1.el7.x86_64                                                       4/5
-  Erasing    : mysql-community-common-5.7.19-1.el7.x86_64                                                     5/5
-  Verifying  : mysql-community-libs-5.7.19-1.el7.x86_64                                                       1/5
-  Verifying  : mysql-community-common-5.7.19-1.el7.x86_64                                                     2/5
-  Verifying  : mysql-community-client-5.7.19-1.el7.x86_64                                                     3/5
-  Verifying  : mysql57-community-release-el7-11.noarch                                                        4/5
-  Verifying  : mysql-community-server-5.7.19-1.el7.x86_64                                                     5/5
-Removed:
-  mysql-community-client.x86_64 0:5.7.19-1.el7            mysql-community-common.x86_64 0:5.7.19-1.el7
-  mysql-community-libs.x86_64 0:5.7.19-1.el7              mysql-community-server.x86_64 0:5.7.19-1.el7
-  mysql57-community-release.noarch 0:el7-11
-...........
-[root@centos7 ~]# rpm -qa |grep -i mysql
-[root@centos7 ~]# find / -name mysql
-/usr/share/mysql
-/var/lib/mysql
-/var/lib/mysql/mysql
-[root@centos7 ~]# rm -rf /usr/share/mysql /var/lib/mysql /var/lib/mysql/mysql</code></td></tr></table></p>
-
-          
+Ins
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/24/centos7安装MySQL/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -795,19 +657,15 @@ Removed:
       
         
           
-            <p>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  我如果爱你——<br> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  绝不像攀援的凌霄花，<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;   借你的高枝炫耀自己：</p>
-<p><img src="http://img.blog.csdn.net/20170915185250166?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;我如果爱你——<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;绝不学痴情的鸟儿，<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;为绿荫重复单调的歌曲；</p>
-<p><img src="http://img.blog.csdn.net/20170915185342061?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; 也不止像泉源，<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; 常年送来清凉的慰籍；<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; 也不止像险峰，增加你的高度，衬托你的威仪。<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; 甚至日光。<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; 甚至春雨。</p>
-<p><img src="http://img.blog.csdn.net/20170915185418889?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><img src="http://img.blog.csdn.net/20170915185448104?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>  &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; 不，这些都还不够！<br>  &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; 我必须是你近旁的一株木棉，<br>  &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; 做为树的形象和你站在一起。<br>  &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; 根，紧握在地下，<br>  &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; 叶，相触在云里。</p>
-<p><img src="http://img.blog.csdn.net/20170915185700997?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;每一阵风过，<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;我们都互相致意，<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;但没有人<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;听懂我们的言语。<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;你有你的铜枝铁干，<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;像刀，像剑，<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;也像戟，<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;我有我的红硕花朵，<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;像沉重的叹息，<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;又像英勇的火炬，<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;我们分担寒潮、风雷、霹雳；<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;我们共享雾霭流岚、虹霓，<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;仿佛永远分离，<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;却又终身相依，<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;这才是伟大的爱情，<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;坚贞就在这里：<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;不仅爱你伟岸的身躯，<br>   &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;也爱你坚持的位置，脚下的土地。</p>
-<p><img src="http://img.blog.csdn.net/20170915185725632?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-
-          
+          &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;  我如果爱你—— &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/15/致橡树/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -982,9 +840,15 @@ Removed:
       
         
           
-            <p>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;撑着油纸伞，独自<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;彷徨在悠长、悠长<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;又寂寥的雨巷<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;我希望逢着<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;一个丁香一样地<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;结着愁怨的姑娘<br><img src="http://img.blog.csdn.net/20170915184028852?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>　<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;她是有<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;丁香一样的颜色<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;丁香一样的芬芳<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;丁香一样的忧愁<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;在雨中哀怨<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;哀怨又彷徨<br><img src="http://img.blog.csdn.net/20170915184057283?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>　<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;她彷徨在这寂寥的雨巷<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;撑着油纸伞<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;像我一样<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;像我一样地<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;默默行着<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;寒漠、凄清，又惆怅<br><img src="http://img.blog.csdn.net/20170915184116017?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>　<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;她默默地走近<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;走近，又投出<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;太息一般的眼光<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;她飘过<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;像梦一般地<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;像梦一般地凄婉迷茫<br><img src="http://img.blog.csdn.net/20170915184257188?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>　<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;像梦中飘过<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;一枝丁香地<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;我身旁飘过这女郎<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;她静默地远了、远了<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;到了颓圮的篱墙<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;走尽这雨巷<br><img src="http://img.blog.csdn.net/20170915184415198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>　<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;在雨的哀曲里<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;消了她的颜色<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;散了她的芬芳<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;消散了，甚至她的<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;太息般的眼光<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;丁香般的惆怅<br><img src="http://img.blog.csdn.net/20170915184713589?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>　<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;撑着油纸伞，独自<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;彷徨在悠长、悠长<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;又寂寥的雨巷<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;我希望飘过<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;一个丁香一样地<br>&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;结着愁怨的姑娘<br><img src="http://img.blog.csdn.net/20170915184810484?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-
-          
+          &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;撑着油纸伞，独自&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &em
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/15/雨巷/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1159,10 +1023,15 @@ Removed:
       
         
           
-            <p>&emsp;&emsp;我与父亲不相见已二年余了，我最不能忘记的是他的背影。那年冬天，祖母死了，父亲的差使也交卸了，正是祸不单行的日子，我从北京到徐州，打算跟着父亲奔丧回家。到徐州见着父亲，看见满院狼藉的东西，又想起祖母，不禁簌簌地流下眼泪。父亲说，事已如此，不必难过，好在天无绝人之路!<br><img src="http://img.blog.csdn.net/20170915181935985?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>　　<br>&emsp;&emsp;回家变卖典质，父亲还了亏空;又借钱办了丧事。这些日子，家中光景很是惨淡，一半为了丧事，一半为了父亲赋闲。丧事完毕，父亲要到南京谋事，我也要回北京念书，我们便同行。<br><img src="http://img.blog.csdn.net/20170915182020020?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br> 　　<br>&emsp;&emsp;到南京时，有朋友约去游逛，勾留了一日;第二日上午便须渡江到浦口，下午上车北去。父亲因为事忙，本已说定不送我，叫旅馆里一个熟识的茶房陪我同去。他再三嘱咐茶房，甚是仔细。但他终于不放心，怕茶房不妥帖;颇踌躇了一会。其实我那年已二十岁，北京已来往过两三次，是没有甚么要紧的了。他踌躇了一会，终于决定还是自己送我去。我两三回劝他不必去;他只说，不要紧，他们去不好!<br><img src="http://img.blog.csdn.net/20170915182202867?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br> 　　<br>&emsp;&emsp;我们过了江，进了车站。我买票，他忙着照看行李。行李太多了，得向脚夫行些小费，才可过去。他便又忙着和他们讲价钱。我那时真是聪明过分，总觉他说话不大漂亮，非自己插嘴不可。但他终于讲定了价钱;就送我上车。他给我拣定了靠车门的一张椅子;我将他给我做的紫毛大衣铺好坐位。他嘱我路上小心，夜里警醒些，不要受凉。又嘱托茶房好好照应我。我心里暗笑他的迂;他们只认得钱，托他们直是白托!而且我这样大年纪的人，难道还不能料理自己么?唉，我现在想想，那时真是太聪明了! 　　我说道，爸爸，你走吧。他望车外看了看，说，我买几个橘子去。你就在此地，不要走动。我看那边月台的栅栏外有几个卖东西的等着顾客。走到那边月台，须穿过铁道，须跳下去又爬上去。父亲是一个胖子，走过去自然要费事些。我本来要去的，他不肯，只好让他去。我看见他戴着黑布小帽，穿着黑布大马褂，深青布棉袍，蹒跚地走到铁道边，慢慢探身下去，尚不大难。可是他穿过铁道，要爬上那边月台，就不容易了。他用两手攀着上面，两脚再向上缩;他肥胖的身子向左微倾，显出努力的样子。这时我看见他的背影，我的泪很快地流下来了。我赶紧拭干了泪，怕他看见，也怕别人看见。我再向外看时，他已抱了朱红的橘子望回走了。过铁道时，他先将橘子散放在地上，自己慢慢爬下，再抱起橘子走。到这边时，我赶紧去搀他。他和我走到车上，将橘子一股脑儿放在我的皮大衣上。于是扑扑衣上的泥土，心里很轻松似的，过一会说，我走了;到那边来信!我望着他走出去。他走了几步，回过头看见我，说，进去吧，里边没人。等他的背影混入来来往往的人里，再找不着了，我便进来坐下，我的眼泪又来了。<br><img src="http://img.blog.csdn.net/20170915182302678?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>&emsp;&emsp;近几年来，父亲和我都是东奔西走，家中光景是一日不如一日。他少年出外谋生，独力支持，做了许多大事。那知老境却如此颓唐!他触目伤怀，自然情不能自已。情郁于中，自然要发之于外;家庭琐屑便往往触他之怒。他待我渐渐不同往日。但最近两年的不见，他终于忘却我的不好，只是惦记着我，惦记着我的儿子。我北来后，他写了一信给我，信中说道，我身体平安，惟膀子疼痛利害，举箸提笔，诸多不便，大约大去之期不远矣。我读到此处，在晶莹的泪光中，又看见那肥胖的，青布棉袍，黑布马褂的背影。唉!我不知何时再能与他相见!<br><img src="http://img.blog.csdn.net/20170915182329048?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>&emsp;&emsp;该文章《朱自清的散文集【名家散文】》</p>
-
-          
+          &emsp;&emsp;我与父亲不相见已二年余了，我最不能忘记的是他的背影。那年冬天，祖母死了，父亲的差使也交卸了，正是祸不单行的日子，我从北京到徐州，打算跟着父亲奔丧回家。到徐州见着父亲，看见满院狼藉的东西，又想起祖母，不禁簌簌地流下眼泪。父亲说，事已如此，不必难过，好在天无绝人之路!　　&ems
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/15/背影/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1337,25 +1206,16 @@ Removed:
       
         
           
-            <p>####<strong>1&gt;位置参数</strong></p>
-<p>&emsp;&emsp;在上节中，checkFileExiist.sh脚本中定义了checkFileExist函数，但是可以看到这个脚本实际上写死了FILE变量，这会造成想要判断不同的文件是否存在时，需要修改脚本中的FILE 变量——也就是要对代码本身的内容进行修改，这也是典型的代码和数据没有分开而导致的问题。事实上，可以通过定义带参数的函数解决这个问题。在shell中，向函数传递参数也是使用位置参数来实现的。</p>
-<p>&emsp;&emsp;使用带参数的函数修改之前的checkFileExist.sh脚本为checkFileExist_v2.sh，注意后面执行脚本时的传参方式。<br><img src="http://img.blog.csdn.net/20170911084119475?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><strong>执行脚本时，通过直接向脚本传递文件全路径的方式传递参数</strong><br><strong>以看到可这种方式不会因为测试文件的不一样而修改脚本本身的内容，非常简单</strong></p>
-<p>下面的例子可以接受两个参数：<code>$1</code>和<code>$2</code>,该脚本将计算出<code>$1</code>的<code>$2</code>次方的值。<br><img src="http://img.blog.csdn.net/20170911084616992?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><strong>计算2的2次方</strong><br><img src="http://img.blog.csdn.net/20170911084650711?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><strong>计算3的3次方</strong><br><img src="http://img.blog.csdn.net/20170911084721446?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<hr>
-<p>####<strong>2&gt;指定位置参数值</strong></p>
-<p>&emsp;&emsp;除了在脚本运行时给脚本传入位置参数外，还可以使用内置命令set命令给脚本指定位置参数的值（又叫重置）。一旦使用set设置了传入参数的值，脚本将忽略运行时传入的位置参数（实际上是被set命令重置了位置参数的值）。<br><img src="http://img.blog.csdn.net/20170911085006257?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><strong>运行结果如下</strong><br>&emsp;&emsp;给脚本传入参数 <code>a b c d e f</code> ，但是由于脚本运行时“重置”了位置参数的值所以打印出来的位置参数为脚本中设置的值<br><img src="http://img.blog.csdn.net/20170911085234264?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><br></p>
-<p>####<strong>移动位置参数</strong><br>&emsp;&emsp;在shell中使用shift命令移动位置参数，shift命令可以让位置参数左移<br>一位，如下<br><img src="http://img.blog.csdn.net/20170911085343842?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><strong>运行结果</strong><br><img src="http://img.blog.csdn.net/20170911085427776?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>&emsp;&emsp;可以在shift命令后跟上向左移动的位数，比如说shift2就是将位置参数整体向左移动两位，将上面的脚本修改一下后，运行结果如下：<br>&emsp;&emsp;<strong>如果将shift_03.sh脚本中的shift改为shift 2，则位置参数将会每次移动两位运行结果如下</strong><br><img src="http://img.blog.csdn.net/20170911085811231?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>&emsp;&emsp;下面的例子是利用shift来计算脚本中所有参数的和。<br><img src="http://img.blog.csdn.net/20170911085858607?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><strong>执行结果</strong><br><img src="http://img.blog.csdn.net/20170911085920743?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-
-          
+          ####1&gt;位置参数
+&emsp;&emsp;在上节中，checkFileExiist.sh脚本中定义了checkFileExist函数，但是可以看到这个脚本实际上写死了FILE变量，这会造成想要判断不同的文件是否存在时，需要修改脚本中的FILE 变量——也就是要对代码本身的内容进行修改，这也
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/15/带参数的函数/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
