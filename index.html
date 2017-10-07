@@ -366,6 +366,311 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.yumufan.top/2017/09/24/centos7安装MySQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="喻木凡">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="断剑重铸之日，骑士归来之时。">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/24/centos7安装MySQL/" itemprop="url">centos7安装的MySQL</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-24T16:25:53+08:00">
+                2017-09-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,832
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#####<strong>一，系统环境</strong></p>
+<p><table><tr><td bgcolor="##00FFFF"><code>[root@centos7 ~]# yum search libaio
+CentOS Linux release 7.1.1503 (Core)</code>  <font color="#8470FF">#查看版本</font></td></tr></table></p>
+<p>#####<strong>二，安装</strong></p>
+<p><table><tr><td bgcolor="#7FFFD4"><code>[root@centos7 ~]# yum install mysql
+........
+Installed:
+  mariadb.x86_64 1:5.5.52-1.el7
+Dependency Installed:
+  mariadb-libs.x86_64 1:5.5.52-1.el7
+Complete!
+........
+[root@centos7 ~]# yum install mysql-server
+........
+Installed:
+  mariadb-devel.x86_64 1:5.5.52-1.el7
+Complete!
+........</code><font color="#8470FF">#yum安装，过程省略</font></td></tr></table></p>
+<p><font color="#0000FF">安装的MySQL和的mysql-devel的都成功，但是安装的MySQL服务器失败，如下所示</font></p>
+<p><table><tr><td bgcolor="#8A2BE2"><code>[root@centos7 ~]# yum install mysql-server
+Loaded plugins: fastestmirror
+Repository epel is listed more than once in the configuration
+Loading mirror speeds from cached hostfile
+No package mysql-server available.
+Error: Nothing to do</code></td></tr></table></p>
+<p><font color="#7FFF00">#加载插件：fastestmirror<br>存储库epel在配置中被多次列出<br>从缓存的主机文件加载镜像速度<br>没有包mysql服务器可用。<br>错误：</font></p>
+<p><font color="#FF7F50">查资料发现是CentOS 7版本将MySQL数据库软件从默认的程序列表中移除，用mariadb代替了。</font></p>
+<p><font color="#FF7F50">有两种解决办法：</font></p>
+<p>#####<strong>方法1：安装MariaDB的</strong></p>
+<p><font color="#808080">MariaDB的数据库管理系统是MySQL的的一个分支，主要由开源社区在维护，采用GPL授权许可开发这个分支的原因之一是：甲骨文公司收购了MySQL的后，有将MySQL的闭源的潜在风险，因此社区采用分支的方式来避开这个风险。MariaDB 的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。</font></p>
+<p><font color="#008000">安装mariadb，大小59 M.</font></p>
+<p><table><tr><td bgcolor="#7CFC00"><code>[root@centos7 ~]# yum install mariadb-server mariadb
+.........
+Installed:
+  mariadb-server.x86_64 1:5.5.52-1.el7
+Dependency Installed:
+  perl-Compress-Raw-Bzip2.x86_64 0:2.061-3.el7            perl-Compress-Raw-Zlib.x86_64 1:2.061-4.el7
+  perl-DBD-MySQL.x86_64 0:4.023-5.el7                     perl-DBI.x86_64 0:1.627-4.el7
+  perl-IO-Compress.noarch 0:2.061-2.el7                   perl-Net-Daemon.noarch 0:0.48-5.el7
+  perl-PlRPC.noarch 0:0.2020-14.el7
+Complete!
+.........</code></td></tr></table></p>
+<p><font color="#20B2AA">安装过程省略，安装完成后设置MariaDB</font></p>
+<p><table><tr><td bgcolor="#FFFF00"><code>[root@centos7 ~]# systemctl start mariadb      #启动MariaDB
+[root@centos7 ~]# systemctl enable mariadb      #设置开机启动
+Created symlink from /etc/systemd/system/multi-user.target.wants/mariadb.service to /usr/lib/systemd/system/mariadb.service.
+[root@centos7 ~]# systemctl status mariadb      #查看MariaDB状态
+● mariadb.service - MariaDB database server
+   Loaded: loaded (/usr/lib/systemd/system/mariadb.service; enabled; vendor preset: disabled)
+   Active: active (running) since Mon 2017-09-24 17:23:09 CST; 33s ago
+ Main PID: 6676 (mysqld_safe)
+   CGroup: /system.slice/mariadb.service
+           ├─6676 /bin/sh /usr/bin/mysqld_safe --basedir=/usr
+           └─6834 /usr/libexec/mysqld --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib64/mysql/p...
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: strongly recommended for production s...s.
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: See the MariaDB Knowledgebase at http...he
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: MySQL manual for more instructions.
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: You can start the MariaDB daemon with:
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: cd &#39;/usr&#39; ; /usr/bin/mysqld_safe --da...l&#39;
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: You can test the MariaDB daemon with ...pl
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mariadb-prepare-db-dir[6598]: cd &#39;/usr/mysql-test&#39; ; perl mysql-tes...pl
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mysqld_safe[6676]: 170924
+17:23:07 mysqld_safe Logging to &#39;/var/lo...g&#39;.
+Sep 24 17:23:07 iz8vbjca1ezyfhdmm3uxovz mysqld_safe[6676]: 170924
+17:23:07 mysqld_safe Starting mysqld dae...sql
+Sep 24 17:23:09 iz8vbjca1ezyfhdmm3uxovz systemd[1]: Started MariaDB database server.
+Hint: Some lines were ellipsized, use -l to show in full.</code></td></tr></table></p>
+<p><font color="#D02090">启动MySQL</font></p>
+<p><table><tr><td bgcolor="#EE82EE"><code>[root@centos7 ~]# mysql
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 2
+Server version: 5.5.52-MariaDB MariaDB Server
+Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.
+Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+MariaDB [(none)]&gt;</code></td></tr></table></p>
+<p><font color="#778899">安装mariadb后显示的也是  MariaDB [（无）]&gt;  ，可能看起来有点不习惯。下面是第二种方法。</font></p>
+<hr>
+<p>#####<strong>方式2：从官网下载安装Mysql的</strong></p>
+<p><font color="#A0522D">安装环境：CentOS 7 64位MINI版，安装MySQL</font></p>
+<p><strong>· 配置YUM源</strong></p>
+<p>&lt;font color=”#FF0000’’&gt;在MySQL的官网中下载YUM源RPM安装包：HTTP：//dev.mysql.com/downloads/repo/yum/</p>
+<p><img src="http://img.blog.csdn.net/20170925153718757?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><table><tr><td bgcolor="#00BFFF"><code># 下载mysql源安装包
+shell&gt; wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm# 安装mysql源
+shell&gt; yum localinstall mysql57-community-release-el7-8.noarch.rpm</code></td></tr></table></p>
+<p>&lt;font color=”#A52A2A’’&gt;检查MySQL的源是否安装成功</p>
+<p><table><tr><td bgcolor="#FF1493"><code># 下载mysql源安装包
+shell&gt; wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm# 安装mysql源
+shell&gt; yum localinstall mysql57-community-release-el7-8.noarch.rpm</code></td></tr></table></p>
+<p>&lt;font color=”    ##7B68EE’’&gt;检查MySQL的源安装是否正确<br>看到上图所示表示安装成功。<br>可以修改vim /etc/yum.repos.d/mysql-community.repo源，改变默认安装的MySQL的版本。比如要安装5.6版本，将5.7源的启用= 1改成使能= 0。然后再将5.6源的使能= 0改成启用= 1即可改完之后的效果如下所示：</p>
+<p><img src="http://img.blog.csdn.net/20170925154506941?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><strong>·    安装的MySQL</strong></p>
+<p><table><tr><td bgcolor="##20B2AA"><code>shell&gt; yum install mysql-community-server</code></td></tr></table></p>
+<p><strong>·    启动MySQL的服务</strong></p>
+<p><table><tr><td bgcolor="#8470FF"><code>shell&gt; systemctl start mysqld</code></td></tr></table></p>
+<p><strong>·    开机启动</strong></p>
+<p><table><tr><td bgcolor="#FA8072"><code>shell&gt; systemctl enable mysqld
+shell&gt; systemctl daemon-reload</code></td></tr></table></p>
+<p><strong>·    修改根本地登录密码</strong></p>
+<p>&lt;font color=”    #CD853F’’&gt;MySQL的安装完成之后，在/var/log/mysqld.log文件中给根生成了一个默认密码通过下面的方式找到根默认密码，然后登录MySQL的进行修改：</p>
+<p><table><tr><td bgcolor="#00FF7F"><code>shell&gt; grep &#39;temporary password&#39; /var/log/mysqld.log</code></td></tr></table></p>
+<p><table><tr><td bgcolor="#FF6347"><code>shell&gt; mysql -uroot -p
+mysql&gt; ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;MyNewPass4!&#39;;</code></td></tr></table></p>
+<p><strong>或者</strong></p>
+<p><table><tr><td bgcolor="#FFFF00"><code>mysql&gt; set password for &#39;root&#39;@&#39;localhost&#39;=password(&#39;MyNewPass4!&#39;);</code></td></tr></table></p>
+<p>&lt;font color=”    #FF6347’’&gt;注意：mysql5.7默认安装了密码安全检查插件（validate_password），默认密码检查策略要求密码必须包含：大小写字母，数字和特殊符号，并且长度不能少于8位。否则会提示错误1819（HY000）：您的密码不符合当前的政策要求错误，如下图所示：密码策略提示<br>通过msyql环境变量可以查看密码策略的相关信息：</p>
+<p><table><tr><td bgcolor="#7CFC00"><code>mysql&gt; show variables like &#39;%password%&#39;;</code></td></tr></table></p>
+<p>&lt;font color=”    #FF6347’’&gt;<strong>MySQL的密码策略</strong><br>validate_password_policy：密码策略，默认为MEDIUM策略<br>validate_password_dictionary_file：密码策略文件，策略为强才需要<br>validate_password_length：密码最少长度<br>validate_password_mixed_case_count：大小写字符长度，至少1个<br>validate_password_number_count：数字至少1个<br>validate_password_special_char_count：特殊字符至少1个上述参数是默认策略中等的密码检查规则。</p>
+<p>&lt;font color=”    #FF6347’’&gt;<strong>上述参数是默认策略中等的密码检查规则。</strong></p>
+<p>&lt;font color=”    #4682B4’’&gt;MySQL的官网密码策略详细说明：HTTP：//dev.mysql.com/doc/refman/5.7/en/validate-password-options-variables.html#sysvar_validate_password_policy</p>
+<p><br><br><strong>修改密码策略</strong></p>
+<p>&lt;font color=”    #708090’’&gt;在/etc/my.cnf中文件添加validate_password_policy配置，指定密码策略</p>
+<p><table><tr><td bgcolor="#FF6347"><code># 选择0（LOW），1（MEDIUM），2（STRONG）其中一种，选择2需要提供密码字典文件
+validate_password_policy=0</code></td></tr></table></p>
+<p>&lt;font color=”    #708090’’&gt;如果不需要密码策略，添加的my.cnf文件中添加如下配置禁用即可：</p>
+<p><table><tr><td bgcolor="#9ACD32"><code>validate_password = off</code></td></tr></table></p>
+<hr>
+<p>#####<strong>三，卸载</strong></p>
+<p><strong>·    检查是否安装了MySQL的</strong></p>
+<p><table><tr><td bgcolor="#00FF7F"><code>[root@centos7 ~]# yum list installed | grep mysql
+mysql-community-client.x86_64        5.7.19-1.el7                      @mysql57-community
+mysql-community-common.x86_64        5.7.19-1.el7                      @mysql57-community
+mysql-community-libs.x86_64          5.7.19-1.el7                      @mysql57-community
+mysql-community-libs-compat.x86_64   5.7.19-1.el7                      @mysql57-community
+mysql-community-server.x86_64        5.7.19-1.el7                      @mysql57-community
+mysql57-community-release.noarch     el7-11                            @/mysql57-community-release-el7-11.noarch</code></td></tr></table></p>
+<p><strong>·    卸载</strong></p>
+<p><table><tr><td bgcolor="#A9A9A9"><code>[root@centos7 ~]# yum remove mysql-community-client mysql-community-common mysql-community-libs mysql-community-server mysql57-community-release
+..........
+Running transaction
+  Erasing    : mysql57-community-release-el7-11.noarch                                                        1/5
+  Erasing    : mysql-community-server-5.7.19-1.el7.x86_64                                                     2/5
+  Erasing    : mysql-community-client-5.7.19-1.el7.x86_64                                                     3/5
+  Erasing    : mysql-community-libs-5.7.19-1.el7.x86_64                                                       4/5
+  Erasing    : mysql-community-common-5.7.19-1.el7.x86_64                                                     5/5
+  Verifying  : mysql-community-libs-5.7.19-1.el7.x86_64                                                       1/5
+  Verifying  : mysql-community-common-5.7.19-1.el7.x86_64                                                     2/5
+  Verifying  : mysql-community-client-5.7.19-1.el7.x86_64                                                     3/5
+  Verifying  : mysql57-community-release-el7-11.noarch                                                        4/5
+  Verifying  : mysql-community-server-5.7.19-1.el7.x86_64                                                     5/5
+Removed:
+  mysql-community-client.x86_64 0:5.7.19-1.el7            mysql-community-common.x86_64 0:5.7.19-1.el7
+  mysql-community-libs.x86_64 0:5.7.19-1.el7              mysql-community-server.x86_64 0:5.7.19-1.el7
+  mysql57-community-release.noarch 0:el7-11
+...........
+[root@centos7 ~]# rpm -qa |grep -i mysql
+[root@centos7 ~]# find / -name mysql
+/usr/share/mysql
+/var/lib/mysql
+/var/lib/mysql/mysql
+[root@centos7 ~]# rm -rf /usr/share/mysql /var/lib/mysql /var/lib/mysql/mysql</code></td></tr></table></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+	
+	<div>
+		
+	</div>
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.yumufan.top/2017/09/15/致橡树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1088,200 +1393,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.yumufan.top/2017/09/15/函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="喻木凡">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="断剑重铸之日，骑士归来之时。">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/15/函数/" itemprop="url">函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-15T16:30:34+08:00">
-                2017-09-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux知识/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux知识</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  878
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>####<strong>1&gt;函数的定义和调用</strong><br>&emsp;&emsp;函数是shell脚本中自定义的一系列执行命令，一般来说函数应该设置有返回值（正确返回0，错误返回非0。对于错误返回，可以定义返回其他非0正值来细化错误，这个我会在下一篇博文中详细描述）。使用函数最大的好处是可避免出现大量重复代码，同时增强了脚本的可读性：如果你在某个shell脚本中看到checkFileExiet这样的代码（实际上是函数的调用），一定不难猜出代码的作用。</p>
-<p>&emsp;&emsp;在shell中定义函数的方法如下（其中function为定义函数的关键字，可以省略）：</p>
-<p><code>#shell中的函数定义</code><br><code>#其中function为关键字，FUNCTION_NAME为函数名</code><br><code>function FUNCTION_NAME() {</code><br>&emsp;&emsp;&emsp;<code>command1 #函数中可以有多个语句，不允许有空语句</code><br>&emsp;&emsp;&emsp;<code>command2</code><br>&emsp;&emsp;&emsp;<code>.....</code><br><code>}</code><br><code>#省略关键字function，效果一致</code><br><code>FUNCTION_NAME() {</code><br>&emsp;&emsp;&emsp;<code>command1</code><br>&emsp;&emsp;&emsp;<code>command2</code><br>&emsp;&emsp;&emsp;<code>.....</code><br><code>}</code></p>
-<p>&emsp;&emsp;下面演示一个简单的函数定义和函数调用相关的例子。你可能会注意到，调用函数的方法只要调用函数名即可。</p>
-<p><img src="http://img.blog.csdn.net/20170908094338284?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><strong>脚本执行结果</strong><br><img src="http://img.blog.csdn.net/20170908094531311?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>&emsp;&emsp;上图中<strong>Hello</strong>是调用函数的输出内容</p>
-<p><br><br>&emsp;&emsp;下面的例子稍微复杂一点，在脚本中定义函数countLine，可计算指定文件的行数。</p>
-<p><img src="http://img.blog.csdn.net/20170908095852174?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><strong>执行结果</strong><br><img src="http://img.blog.csdn.net/20170908095956281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>&emsp;&emsp;同样的<strong>/etc/passwd have 0 lines</strong> 是调用函数的输出内容</p>
-<hr>
-<p>####<strong>2&gt;函数的返回值</strong><br>&emsp;&emsp;函数的返回值又叫函数的退出状态，实际上是一种通信方式。举个生活中的例子便于大家更清楚的了解函数返回值的概念。</p>
-<p>&emsp;&emsp;假设小强和小王说好每周六早上10点都会到她家里玩，可是小强经常会迟到，这时候小王都会发消息问小强他出发没有？小强收到消息会根据实际情况回复消息，如果没有出发就发送“NO”否则“YES”。在这个例子中，小王会发消息问小强出发没有，可以看作是一种“调用”，而小强的回复可以看作是调用的“返回值”。如果使用0代表“NO”，1代表“YES”，那么就更像是真实的函数调用了。但是只有0和1这两种回复还是略显简单了些——如果出发了，那么出发到了哪里了？我们可以使用2代表走到1/4的路程，函数3代表走到了1/2的路程，4代表走到了3/4的路程，5代表已经到楼下等等，这样返回值就更有意义了。</p>
-<p>&emsp;&emsp;Shell中的函数可以使用“返回值”的方式来给调用这反馈信息（使用return关键字），不要忘了获取上一个命令返回值的方式是使用$？——这是获取函数返回值的主要方式。下面的例子中将创建checkFileExist函数，用于判断文件是否存在。</p>
-<p><img src="http://img.blog.csdn.net/20170908103650342?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><strong>执行结果</strong><br><img src="http://img.blog.csdn.net/20170908103736602?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>&emsp;&emsp;图中<strong>/etc/notExistFile not exist</strong> 是调用函数的输出内容</p>
-<p><br><br>&emsp;&emsp;下面举一个利用多个函数返回值判断用户输入的例子，如果用户输入的数值大于等于0且小于10则返回0，大于等于10 且小于20则返回1，大于等于20且小于30则返回2，输入其余数则返回3。<br><img src="http://img.blog.csdn.net/20170908111221692?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><strong>脚本执行结果</strong><br><img src="http://img.blog.csdn.net/20170908111320123?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>&emsp;&emsp;今天关于函数的知识就介绍到这，下篇继续为大家分享带参数的函数，谢谢大家！</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-	
-	<div>
-		
-	</div>
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1335,7 +1446,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1357,7 +1468,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1679,7 +1790,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共3.7k字</span>
+  <span class="post-count">博客全站共5.5k字</span>
 </div>
 
         
