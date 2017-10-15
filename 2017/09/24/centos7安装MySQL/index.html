@@ -108,20 +108,20 @@
 
 
 
-<meta name="description" content="#####一，系统环境 [root@centos7 ~]# yum search libaio CentOS Linux release 7.1.1503 (Core)  #查看版本 #####二，安装 [root@centos7 ~]# yum install mysql ........ Installed:   mariadb.x86_64 1:5.5.52-1.el7 Dependency">
+<meta name="description" content="一，系统环境 [root@centos7 ~]# yum search libaio CentOS Linux release 7.1.1503 (Core)  #查看版本 二，安装 [root@centos7 ~]# yum install mysql ........ Installed:   mariadb.x86_64 1:5.5.52-1.el7 Dependency Installed">
 <meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="centos7安装的MySQL">
 <meta property="og:url" content="http://www.yumufan.top/2017/09/24/centos7安装MySQL/index.html">
 <meta property="og:site_name" content="浮生一片草，岁月催人老。">
-<meta property="og:description" content="#####一，系统环境 [root@centos7 ~]# yum search libaio CentOS Linux release 7.1.1503 (Core)  #查看版本 #####二，安装 [root@centos7 ~]# yum install mysql ........ Installed:   mariadb.x86_64 1:5.5.52-1.el7 Dependency">
+<meta property="og:description" content="一，系统环境 [root@centos7 ~]# yum search libaio CentOS Linux release 7.1.1503 (Core)  #查看版本 二，安装 [root@centos7 ~]# yum install mysql ........ Installed:   mariadb.x86_64 1:5.5.52-1.el7 Dependency Installed">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20170925153718757?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170925154506941?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-10-15T07:25:13.324Z">
+<meta property="og:updated_time" content="2017-10-15T07:38:51.293Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos7安装的MySQL">
-<meta name="twitter:description" content="#####一，系统环境 [root@centos7 ~]# yum search libaio CentOS Linux release 7.1.1503 (Core)  #查看版本 #####二，安装 [root@centos7 ~]# yum install mysql ........ Installed:   mariadb.x86_64 1:5.5.52-1.el7 Dependency">
+<meta name="twitter:description" content="一，系统环境 [root@centos7 ~]# yum search libaio CentOS Linux release 7.1.1503 (Core)  #查看版本 二，安装 [root@centos7 ~]# yum install mysql ........ Installed:   mariadb.x86_64 1:5.5.52-1.el7 Dependency Installed">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170925153718757?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -473,10 +473,10 @@
       
 
       
-        <p>#####<strong>一，系统环境</strong></p>
+        <p><strong>一，系统环境</strong></p>
 <p><table><tr><td bgcolor="##00FFFF"><code>[root@centos7 ~]# yum search libaio
 CentOS Linux release 7.1.1503 (Core)</code>  <font color="#8470FF">#查看版本</font></td></tr></table></p>
-<p>#####<strong>二，安装</strong></p>
+<p><strong>二，安装</strong></p>
 <p><table><tr><td bgcolor="#7FFFD4"><code>[root@centos7 ~]# yum install mysql
 ........
 Installed:
@@ -501,7 +501,7 @@ Error: Nothing to do</code></td></tr></table></p>
 <p><font color="#7FFF00">#加载插件：fastestmirror<br>存储库epel在配置中被多次列出<br>从缓存的主机文件加载镜像速度<br>没有包mysql服务器可用。<br>错误：</font></p>
 <p><font color="#FF7F50">查资料发现是CentOS 7版本将MySQL数据库软件从默认的程序列表中移除，用mariadb代替了。</font></p>
 <p><font color="#FF7F50">有两种解决办法：</font></p>
-<p>#####<strong>方法1：安装MariaDB的</strong></p>
+<p><strong>方法1：安装MariaDB的</strong></p>
 <p><font color="#808080">MariaDB的数据库管理系统是MySQL的的一个分支，主要由开源社区在维护，采用GPL授权许可开发这个分支的原因之一是：甲骨文公司收购了MySQL的后，有将MySQL的闭源的潜在风险，因此社区采用分支的方式来避开这个风险。MariaDB 的目的是完全兼容MySQL，包括API和命令行，使之能轻松成为MySQL的代替品。</font></p>
 <p><font color="#008000">安装mariadb，大小59 M.</font></p>
 <p><table><tr><td bgcolor="#7CFC00"><code>[root@centos7 ~]# yum install mariadb-server mariadb
@@ -550,7 +550,7 @@ Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the cu
 MariaDB [(none)]&gt;</code></td></tr></table></p>
 <p><font color="#778899">安装mariadb后显示的也是  MariaDB [（无）]&gt;  ，可能看起来有点不习惯。下面是第二种方法。</font></p>
 <hr>
-<p>#####<strong>方式2：从官网下载安装Mysql的</strong></p>
+<p><strong>方式2：从官网下载安装Mysql的</strong></p>
 <p><font color="#A0522D">安装环境：CentOS 7 64位MINI版，安装MySQL</font></p>
 <p><strong>· 配置YUM源</strong></p>
 <p>&lt;font color=”#FF0000’’&gt;在MySQL的官网中下载YUM源RPM安装包：HTTP：//dev.mysql.com/downloads/repo/yum/</p>
@@ -590,7 +590,7 @@ validate_password_policy=0</code></td></tr></table></p>
 <p>&lt;font color=”    #708090’’&gt;如果不需要密码策略，添加的my.cnf文件中添加如下配置禁用即可：</p>
 <p><table><tr><td bgcolor="#9ACD32"><code>validate_password = off</code></td></tr></table></p>
 <hr>
-<p>#####<strong>三，卸载</strong></p>
+<p><strong>三，卸载</strong></p>
 <p><strong>·    检查是否安装了MySQL的</strong></p>
 <p><table><tr><td bgcolor="#00FF7F"><code>[root@centos7 ~]# yum list installed | grep mysql
 mysql-community-client.x86_64        5.7.19-1.el7                      @mysql57-community

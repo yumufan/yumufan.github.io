@@ -108,13 +108,13 @@
 
 
 
-<meta name="description" content="####1&amp;gt;位置参数 &amp;emsp;&amp;emsp;在上节中，checkFileExiist.sh脚本中定义了checkFileExist函数，但是可以看到这个脚本实际上写死了FILE变量，这会造成想要判断不同的文件是否存在时，需要修改脚本中的FILE 变量——也就是要对代码本身的内容进行修改，这也是典型的代码和数据没有分开而导致的问题。事实上，可以通过定义带参数的函数解决这个问题。在shell中">
+<meta name="description" content="1&amp;gt;位置参数 &amp;emsp;&amp;emsp;在上节中，checkFileExiist.sh脚本中定义了checkFileExist函数，但是可以看到这个脚本实际上写死了FILE变量，这会造成想要判断不同的文件是否存在时，需要修改脚本中的FILE 变量——也就是要对代码本身的内容进行修改，这也是典型的代码和数据没有分开而导致的问题。事实上，可以通过定义带参数的函数解决这个问题。在shell中，向函数">
 <meta name="keywords" content="参数函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="带参数的函数">
 <meta property="og:url" content="http://www.yumufan.top/2017/09/15/带参数的函数/index.html">
 <meta property="og:site_name" content="浮生一片草，岁月催人老。">
-<meta property="og:description" content="####1&amp;gt;位置参数 &amp;emsp;&amp;emsp;在上节中，checkFileExiist.sh脚本中定义了checkFileExist函数，但是可以看到这个脚本实际上写死了FILE变量，这会造成想要判断不同的文件是否存在时，需要修改脚本中的FILE 变量——也就是要对代码本身的内容进行修改，这也是典型的代码和数据没有分开而导致的问题。事实上，可以通过定义带参数的函数解决这个问题。在shell中">
+<meta property="og:description" content="1&amp;gt;位置参数 &amp;emsp;&amp;emsp;在上节中，checkFileExiist.sh脚本中定义了checkFileExist函数，但是可以看到这个脚本实际上写死了FILE变量，这会造成想要判断不同的文件是否存在时，需要修改脚本中的FILE 变量——也就是要对代码本身的内容进行修改，这也是典型的代码和数据没有分开而导致的问题。事实上，可以通过定义带参数的函数解决这个问题。在shell中，向函数">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20170911084119475?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170911084616992?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
@@ -127,10 +127,10 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20170911085811231?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170911085858607?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170911085920743?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-10-15T07:28:06.525Z">
+<meta property="og:updated_time" content="2017-10-15T07:42:06.355Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="带参数的函数">
-<meta name="twitter:description" content="####1&amp;gt;位置参数 &amp;emsp;&amp;emsp;在上节中，checkFileExiist.sh脚本中定义了checkFileExist函数，但是可以看到这个脚本实际上写死了FILE变量，这会造成想要判断不同的文件是否存在时，需要修改脚本中的FILE 变量——也就是要对代码本身的内容进行修改，这也是典型的代码和数据没有分开而导致的问题。事实上，可以通过定义带参数的函数解决这个问题。在shell中">
+<meta name="twitter:description" content="1&amp;gt;位置参数 &amp;emsp;&amp;emsp;在上节中，checkFileExiist.sh脚本中定义了checkFileExist函数，但是可以看到这个脚本实际上写死了FILE变量，这会造成想要判断不同的文件是否存在时，需要修改脚本中的FILE 变量——也就是要对代码本身的内容进行修改，这也是典型的代码和数据没有分开而导致的问题。事实上，可以通过定义带参数的函数解决这个问题。在shell中，向函数">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170911084119475?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -504,7 +504,7 @@
       
 
       
-        <p>####<strong>1&gt;位置参数</strong></p>
+        <p><strong>1&gt;位置参数</strong></p>
 <p>&emsp;&emsp;在上节中，checkFileExiist.sh脚本中定义了checkFileExist函数，但是可以看到这个脚本实际上写死了FILE变量，这会造成想要判断不同的文件是否存在时，需要修改脚本中的FILE 变量——也就是要对代码本身的内容进行修改，这也是典型的代码和数据没有分开而导致的问题。事实上，可以通过定义带参数的函数解决这个问题。在shell中，向函数传递参数也是使用位置参数来实现的。</p>
 <p>&emsp;&emsp;使用带参数的函数修改之前的checkFileExist.sh脚本为checkFileExist_v2.sh，注意后面执行脚本时的传参方式。<br><img src="http://img.blog.csdn.net/20170911084119475?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p><strong>执行脚本时，通过直接向脚本传递文件全路径的方式传递参数</strong><br><strong>以看到可这种方式不会因为测试文件的不一样而修改脚本本身的内容，非常简单</strong></p>
@@ -512,11 +512,10 @@
 <p><strong>计算2的2次方</strong><br><img src="http://img.blog.csdn.net/20170911084650711?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p><strong>计算3的3次方</strong><br><img src="http://img.blog.csdn.net/20170911084721446?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <hr>
-<p>####<strong>2&gt;指定位置参数值</strong></p>
+<p><strong>2&gt;指定位置参数值</strong></p>
 <p>&emsp;&emsp;除了在脚本运行时给脚本传入位置参数外，还可以使用内置命令set命令给脚本指定位置参数的值（又叫重置）。一旦使用set设置了传入参数的值，脚本将忽略运行时传入的位置参数（实际上是被set命令重置了位置参数的值）。<br><img src="http://img.blog.csdn.net/20170911085006257?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p><strong>运行结果如下</strong><br>&emsp;&emsp;给脚本传入参数 <code>a b c d e f</code> ，但是由于脚本运行时“重置”了位置参数的值所以打印出来的位置参数为脚本中设置的值<br><img src="http://img.blog.csdn.net/20170911085234264?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><br></p>
-<p>####<strong>移动位置参数</strong><br>&emsp;&emsp;在shell中使用shift命令移动位置参数，shift命令可以让位置参数左移<br>一位，如下<br><img src="http://img.blog.csdn.net/20170911085343842?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><br><br><strong>移动位置参数</strong><br>&emsp;&emsp;在shell中使用shift命令移动位置参数，shift命令可以让位置参数左移<br>一位，如下<br><img src="http://img.blog.csdn.net/20170911085343842?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p><strong>运行结果</strong><br><img src="http://img.blog.csdn.net/20170911085427776?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p>&emsp;&emsp;可以在shift命令后跟上向左移动的位数，比如说shift2就是将位置参数整体向左移动两位，将上面的脚本修改一下后，运行结果如下：<br>&emsp;&emsp;<strong>如果将shift_03.sh脚本中的shift改为shift 2，则位置参数将会每次移动两位运行结果如下</strong><br><img src="http://img.blog.csdn.net/20170911085811231?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p>&emsp;&emsp;下面的例子是利用shift来计算脚本中所有参数的和。<br><img src="http://img.blog.csdn.net/20170911085858607?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>

@@ -108,13 +108,13 @@
 
 
 
-<meta name="description" content="####1&amp;gt;函数的定义和调用&amp;emsp;&amp;emsp;函数是shell脚本中自定义的一系列执行命令，一般来说函数应该设置有返回值（正确返回0，错误返回非0。对于错误返回，可以定义返回其他非0正值来细化错误，这个我会在下一篇博文中详细描述）。使用函数最大的好处是可避免出现大量重复代码，同时增强了脚本的可读性：如果你在某个shell脚本中看到checkFileExiet这样的代码（实际上是函数的调">
+<meta name="description" content="1&amp;gt;函数的定义和调用&amp;emsp;&amp;emsp;函数是shell脚本中自定义的一系列执行命令，一般来说函数应该设置有返回值（正确返回0，错误返回非0。对于错误返回，可以定义返回其他非0正值来细化错误，这个我会在下一篇博文中详细描述）。使用函数最大的好处是可避免出现大量重复代码，同时增强了脚本的可读性：如果你在某个shell脚本中看到checkFileExiet这样的代码（实际上是函数的调用），一">
 <meta name="keywords" content="函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数">
 <meta property="og:url" content="http://www.yumufan.top/2017/09/15/函数/index.html">
 <meta property="og:site_name" content="浮生一片草，岁月催人老。">
-<meta property="og:description" content="####1&amp;gt;函数的定义和调用&amp;emsp;&amp;emsp;函数是shell脚本中自定义的一系列执行命令，一般来说函数应该设置有返回值（正确返回0，错误返回非0。对于错误返回，可以定义返回其他非0正值来细化错误，这个我会在下一篇博文中详细描述）。使用函数最大的好处是可避免出现大量重复代码，同时增强了脚本的可读性：如果你在某个shell脚本中看到checkFileExiet这样的代码（实际上是函数的调">
+<meta property="og:description" content="1&amp;gt;函数的定义和调用&amp;emsp;&amp;emsp;函数是shell脚本中自定义的一系列执行命令，一般来说函数应该设置有返回值（正确返回0，错误返回非0。对于错误返回，可以定义返回其他非0正值来细化错误，这个我会在下一篇博文中详细描述）。使用函数最大的好处是可避免出现大量重复代码，同时增强了脚本的可读性：如果你在某个shell脚本中看到checkFileExiet这样的代码（实际上是函数的调用），一">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20170908094338284?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170908094531311?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
@@ -124,10 +124,10 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20170908103736602?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170908111221692?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170908111320123?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-10-15T07:26:57.457Z">
+<meta property="og:updated_time" content="2017-10-15T07:41:43.124Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数">
-<meta name="twitter:description" content="####1&amp;gt;函数的定义和调用&amp;emsp;&amp;emsp;函数是shell脚本中自定义的一系列执行命令，一般来说函数应该设置有返回值（正确返回0，错误返回非0。对于错误返回，可以定义返回其他非0正值来细化错误，这个我会在下一篇博文中详细描述）。使用函数最大的好处是可避免出现大量重复代码，同时增强了脚本的可读性：如果你在某个shell脚本中看到checkFileExiet这样的代码（实际上是函数的调">
+<meta name="twitter:description" content="1&amp;gt;函数的定义和调用&amp;emsp;&amp;emsp;函数是shell脚本中自定义的一系列执行命令，一般来说函数应该设置有返回值（正确返回0，错误返回非0。对于错误返回，可以定义返回其他非0正值来细化错误，这个我会在下一篇博文中详细描述）。使用函数最大的好处是可避免出现大量重复代码，同时增强了脚本的可读性：如果你在某个shell脚本中看到checkFileExiet这样的代码（实际上是函数的调用），一">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170908094338284?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -501,7 +501,7 @@
       
 
       
-        <p>####<strong>1&gt;函数的定义和调用</strong><br>&emsp;&emsp;函数是shell脚本中自定义的一系列执行命令，一般来说函数应该设置有返回值（正确返回0，错误返回非0。对于错误返回，可以定义返回其他非0正值来细化错误，这个我会在下一篇博文中详细描述）。使用函数最大的好处是可避免出现大量重复代码，同时增强了脚本的可读性：如果你在某个shell脚本中看到checkFileExiet这样的代码（实际上是函数的调用），一定不难猜出代码的作用。</p>
+        <p><strong>1&gt;函数的定义和调用</strong><br>&emsp;&emsp;函数是shell脚本中自定义的一系列执行命令，一般来说函数应该设置有返回值（正确返回0，错误返回非0。对于错误返回，可以定义返回其他非0正值来细化错误，这个我会在下一篇博文中详细描述）。使用函数最大的好处是可避免出现大量重复代码，同时增强了脚本的可读性：如果你在某个shell脚本中看到checkFileExiet这样的代码（实际上是函数的调用），一定不难猜出代码的作用。</p>
 <p>&emsp;&emsp;在shell中定义函数的方法如下（其中function为定义函数的关键字，可以省略）：</p>
 <p><code>#shell中的函数定义</code><br><code>#其中function为关键字，FUNCTION_NAME为函数名</code><br><code>function FUNCTION_NAME() {</code><br>&emsp;&emsp;&emsp;<code>command1 #函数中可以有多个语句，不允许有空语句</code><br>&emsp;&emsp;&emsp;<code>command2</code><br>&emsp;&emsp;&emsp;<code>.....</code><br><code>}</code><br><code>#省略关键字function，效果一致</code><br><code>FUNCTION_NAME() {</code><br>&emsp;&emsp;&emsp;<code>command1</code><br>&emsp;&emsp;&emsp;<code>command2</code><br>&emsp;&emsp;&emsp;<code>.....</code><br><code>}</code></p>
 <p>&emsp;&emsp;下面演示一个简单的函数定义和函数调用相关的例子。你可能会注意到，调用函数的方法只要调用函数名即可。</p>
@@ -511,7 +511,7 @@
 <p><img src="http://img.blog.csdn.net/20170908095852174?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <p><strong>执行结果</strong><br><img src="http://img.blog.csdn.net/20170908095956281?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>&emsp;&emsp;同样的<strong>/etc/passwd have 0 lines</strong> 是调用函数的输出内容</p>
 <hr>
-<p>####<strong>2&gt;函数的返回值</strong><br>&emsp;&emsp;函数的返回值又叫函数的退出状态，实际上是一种通信方式。举个生活中的例子便于大家更清楚的了解函数返回值的概念。</p>
+<p><strong>2&gt;函数的返回值</strong><br>&emsp;&emsp;函数的返回值又叫函数的退出状态，实际上是一种通信方式。举个生活中的例子便于大家更清楚的了解函数返回值的概念。</p>
 <p>&emsp;&emsp;假设小强和小王说好每周六早上10点都会到她家里玩，可是小强经常会迟到，这时候小王都会发消息问小强他出发没有？小强收到消息会根据实际情况回复消息，如果没有出发就发送“NO”否则“YES”。在这个例子中，小王会发消息问小强出发没有，可以看作是一种“调用”，而小强的回复可以看作是调用的“返回值”。如果使用0代表“NO”，1代表“YES”，那么就更像是真实的函数调用了。但是只有0和1这两种回复还是略显简单了些——如果出发了，那么出发到了哪里了？我们可以使用2代表走到1/4的路程，函数3代表走到了1/2的路程，4代表走到了3/4的路程，5代表已经到楼下等等，这样返回值就更有意义了。</p>
 <p>&emsp;&emsp;Shell中的函数可以使用“返回值”的方式来给调用这反馈信息（使用return关键字），不要忘了获取上一个命令返回值的方式是使用$？——这是获取函数返回值的主要方式。下面的例子中将创建checkFileExist函数，用于判断文件是否存在。</p>
 <p><img src="http://img.blog.csdn.net/20170908103650342?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvV3l4dG5icA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
